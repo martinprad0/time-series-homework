@@ -1,0 +1,87 @@
+\documentclass[parskip=full]{scrartcl}
+
+%%--PACKAGES-----------------------------------------------------
+\usepackage[dvipsnames]{xcolor} % color
+\usepackage[colorlinks=true, allbordercolors={0 0 0}, pdfborderstyle={/S/U/W 1}, linkcolor=blue,urlcolor=blue,bookmarksopen=true, urlbordercolor=cyan]{hyperref}  % hyperlinks
+\usepackage[a4paper, total={6in, 9in}]{geometry} % margins
+\usepackage{bookmark, breakurl, amsfonts, amsthm, amsmath, amssymb, cancel, mathrsfs, enumitem, advdate} % quality of life packages.
+\usepackage{tikz, subfig, subcaption, graphicx, float, wrapfig, multicol} % tikz, graphics and positioning.
+
+
+%%--CORRECTIONS--------------------------------------------------
+% \usepackage[switch, displaymath, mathlines]{lineno}
+% \usepackage[allfiguresdraft]{draftfigure} % Disable pictures for fast rendering
+% \linenumbers{}
+% \counterwithin{equation}{subsection}
+% \newcommand\inlinetag{\stepcounter{equation}\ (\theequation)}
+
+%%--AUTOMATION----------------------------------------------------
+\usepackage{l3sys-shell}
+\ExplSyntaxOn%
+\NewDocumentCommand\inputfiles{ m }
+    {
+    \sys_shell_split_ls:nN {#1} \l_tmpa_seq
+    \seq_map_inline:Nn \l_tmpa_seq { \input {##1} }
+    }
+\ExplSyntaxOff%
+
+%%--MATH---------------------------------------------------------
+% Custom Letters
+\def\N{\ensuremath{\mathbb{N}}}
+\def\Z{\ensuremath{\mathbb{Z}}}
+\def\Q{\ensuremath{\mathbb{Q}}}
+\def\R{\ensuremath{\mathbb{R}}}
+\def\C{\ensuremath{\mathbb{C}}}
+\def\S{\ensuremath{\mathbb{S}}}
+\def\D{\ensuremath{\mathbb{D}}}
+
+\usepackage{bbm,dsfont}
+\def\1{\ensuremath{\mathds{1}}}
+\def\E{\ensuremath{\textbf{E}}}
+\def\Var{\ensuremath{\textbf{Var}}}
+\def\d{\ensuremath{\partial}}
+\def\P{\ensuremath{\mathbf{P}}}
+\def\A{\ensuremath{\mathcal{A}}}
+\def\AA{\ensuremath{\mathscr{A}}}
+\def\CC{\ensuremath{\mathscr{C}}}
+
+
+% Theorems and more
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}[theorem]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Remark}
+
+% Custom Commands
+\newcommand{\angles}[1]{\ensuremath{\left\langle}#1\ensuremath{\right\rangle} }
+\newcommand{\floor}[1]{\ensuremath{\left\lfloor}#1\ensuremath{\right\rfloor} }
+\newcommand{\ceil}[1]{\ensuremath{\left\lceil}#1\ensuremath{\right\rceil} }
+\def\ol{\ensuremath{\overline}}
+\def\ul{\ensuremath{\underline}}
+
+% Section Numbering Fixes
+\makeatletter
+\renewcommand\thesection{}
+\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
+\makeatother
+
+% Title Info
+\title{Time Series: Homework 1}
+\author{Martín Prado}
+\date{\AdvanceDate[-1]\today} % For cheating deadlines change 0 to -1
+\publishers{Universidad de los Andes $-$ Bogotá Colombia}
+
+
+%%--DOCUMENT-----------------------------------------------------
+\begin{document}
+\maketitle
+
+% \tableofcontents 
+
+\inputfiles{../exercises/*}
+
+% \bibliography{refs}
+ 
+\end{document}

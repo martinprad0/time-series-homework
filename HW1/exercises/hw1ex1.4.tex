@@ -1,0 +1,63 @@
+% chktex-file 3 chktex-file 9 chktex-file 10 chktex-file 17 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 1.4.}
+
+If $m_t = \sum_{k = 0}^{p}c_k t^{k}, t = 0,\pm 1,\ldots,$ show that $\nabla m_t$ is a polynomial of degree $(p-1)$ in $t$ and hence that $\nabla^{p+1}m_t = 0$.
+
+\textbf{Solution:}
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    m_{t-1} & = & \sum_{k = 0}^{p}c_k (t-1)^{k}\\
+    & = & \sum_{k = 0}^{p}c_k \sum_{j = 0}^k \binom{k}{j} t^{j} (-1)^{k-j}\\
+    & = & \sum_{j = 0}^{p} t^j \sum_{k = j}^{p} \binom{k}{j} (-1)^{k-j} c_k
+\end{array} \]
+
+The last line can be deduced from the following diagram
+\[ m_{t-1} = \sum_{k = 0}^{p}c_k \sum_{j = 0}^k \binom{k}{j} t^{j} (-1)^{k-j} = \]
+\[ \everymath{\displaystyle}
+\arraycolsep=1.3pt\def\arraystretch{2}
+\begin{array}{ccccccccccc}
+    c_0 \binom{0}{0} t^0 (-1)^{0-0}\\
+    c_1 \binom{1}{0} t^0 (-1)^{1-0} & + & c_1 \binom{1}{1} t^1 (-1)^{1-1}\\
+    c_2 \binom{2}{0} t^0 (-1)^{2-0} & + & c_2 \binom{2}{1} t^1 (-1)^{2-1} & + & c_2 \binom{2}{2} t^2 (-1)^{2-2}\\
+    \vdots &  & \vdots &  & \vdots &  & \ddots \\
+    c_p \binom{p}{0} t^0 (-1)^{p-0} & + & c_p \binom{p}{1} t^1 (-1)^{p-1} & + & c_p \binom{p}{2} t^2 (-1)^{p-2} & + & \cdots & + & c_p \binom{p}{p} t^p (-1)^{p-p}\\
+    = & & = & & = & & \cdots & & =\\
+    t^0 \sum_{k = 0}^{p}c_k\binom{k}{0}(-1)^{k-0} & + & 
+    t^1 \sum_{k = 1}^{p}c_k\binom{k}{1}(-1)^{k-1} & + &
+    t^2 \sum_{k = 2}^{p}c_k\binom{k}{2}(-1)^{k-2} & + & \cdots & + &
+    t^p \sum_{k = p}^{p}c_k\binom{k}{p}(-1)^{k-p}
+\end{array} \]
+
+Thus, for $j = p$, the coefficient that accompanies $t^p$ is $\binom{p}{p}(-1)^{p-p} c_p = c_p$. So it follows that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcllll}
+    \nabla m_t & = &  & \sum_{j = 0}^{p}c_j t^{j}  & - & \sum_{j = 0}^{p} t^j \sum_{k = j}^{p} \binom{k}{j} (-1)^{k-j} c_k\\
+    & = & c_p t^p + & \sum_{j = 0}^{p-1}c_j t^{j} \; - \; & c_p t^p - & \sum_{j = 0}^{p-1} t^j \sum_{k = j}^{p} \binom{k}{j} (-1)^{k-j} c_k\\
+\end{array}  \]
+\[ = \sum_{j = 0}^{p-1} t^j \cdot \left[ c_j - \sum_{k = j}^{p} \binom{k}{j} (-1)^{k-j} c_k \right], \]
+which is a $(p-1)$-degree polynomial. Now, note that
+\[ \nabla^{n} m_{t} = (I-B)^{n}(m_t). \]
+One can inductively show that $\nabla^n m_t$ has degree $p-n$ for any polynomial $m_t$ of degree $p$. We proved the base case previously, so assume that $\nabla^{n-1} m_t$ has degree $p-n+1$. Then, define $d_j = [\nabla^{n-1} m_t]_{t^j}$ as the coefficient that accompanies $t^j$. 
+
+Since we proved that $(I-B)$ reduces by one the degree of any polynomial, it follows that $(I-B) \nabla^{n-1} m_t$ has degree $(p-n+1)-1 = p-n$. This can be verified with the following calculation:
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \nabla^{n} m_t & = & (I-B) (I-B)^{n-1} m_t\\
+    & = & (I-B) \nabla^{n-1} m_t\\
+    & = & \nabla \left( \sum_{k = 0}^{p-n+1} d_k t^k \right)\\
+    & = & \sum_{j = 0}^{p-n} t^j \cdot \left[ d_j - \sum_{k = j}^{p-n+1} \binom{k}{j} (-1)^{k-j} d_k \right].
+\end{array} \] 
+Finally, $\nabla^{p}m_t$ is polynomial of degree 0, and thus, it's a constant function $f_t = K$. Therefore,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \nabla^{p+1} m_t & = & (I-B) (\nabla^{p}m_t)\\
+    & = & (I-B) (Kt^0)\\
+    & = & K - BK\\
+    & = & K - K = 0.
+\end{array} \]
+The backwards shift operator evaluated on a constant is the same constant since $f_t = f_{t-1} = K$ for a constant function $f_t$.

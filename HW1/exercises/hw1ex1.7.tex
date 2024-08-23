@@ -1,0 +1,103 @@
+% chktex-file 3 chktex-file 9 chktex-file 10 chktex-file 17 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 1.7.}
+
+Let $Z_t, t= 0,\pm 1, \ldots,$ be independent normal random variables each with mean 0 and variance $\sigma^2$ and let $a,b$ and $c$ be constants. Which, if any, of the following processes are stationary? For each stationary process specify the mean and autocovariance function.
+\begin{enumerate}
+    \item[(a)] $X_t = a + bZ_t + cZ_{t-1}$,
+    \item[(c)] $X_t = Z_1 \cos(ct) + Z_2 \sin(ct)$,
+    \item[(e)] $X_t = Z_t \cos(ct) + Z_{t-1}\sin(ct)$ 
+\end{enumerate}
+
+\textbf{Note:} I assumed by mistake that $\sigma^2 = 1$. However, in all of the equations on the following solution, the $\sigma^2$ term can always be factorized without altering the truth value of the propositions.
+
+\subsection*{Solution part (a)}
+
+Using the linearity of the expected value and the variance ($Z_t$'s are independent)
+\[ \E X_t = a + b\E Z_t + c \E Z_{t-1} = a \]
+\[ \Var(X_t) = b^2 \Var(Z_t) + c^2 \Var(Z_{t-1}) = b^2+c^2 \]
+\[ \implies \E|X_t|^2 = \Var(X_t) + (\E X_t)^2 = a^2 + b^2 + c^2 <\infty \]
+Now for the autocovariance function,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \gamma_X(r,s) & = & \E[(X_r-a)(X_s-a)]\\
+    & = & \E[(bZ_r + cZ_{r-1})] \E[(bZ_s + cZ_{s-1})]\\
+    & = & b^2 \E Z_r Z_s + bc \E Z_r Z_{s-1} + bc \E Z_{r-1} Z_s + c^2 \E Z_{r-1}Z_{s-1}.
+\end{array} \]
+There are two cases where $\gamma_{X}$ is not zero, and that's because $\E Z_r Z_s = 1 \iff r = s$:
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \gamma_X(t,t) & = & b^2 \E Z_t Z_t + 2bc \E Z_t Z_{t-1} + c^2 \E Z_{t-1}Z_{t-1} \\
+    & = & b^2 \E Z_t^2 + c^2 \E Z_{t-1}^2\\
+    & = & b^2 + c^2,
+\end{array}  \]
+and then, by symmetry of $\gamma$,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \gamma_X(t,t+1) = \gamma_X(t,t-1) & = & b^2 \E Z_t Z_{t-1} + bc \E Z_t Z_{t-2} + bc \E Z_{t-1} Z_{t-1} + c^2 \E Z_{t-1}Z_{t-2}\\
+    & = & bc \E Z_{t-1}^2\\
+    & = & bc.
+\end{array}\]
+On the other hand, for $|h| > 1$,
+\[ t \neq t+h,\hspace{1em}  t \neq t+h-1,\hspace{1em} t-1 \neq t+h,\hspace{1em} t-1 \neq t+h-1  \]
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \implies \gamma_X(t,t+h) & = & b^2 \E Z_t Z_{t+h} + bc \E Z_t Z_{t+h-1} + bc \E Z_{t-1} Z_{t+h} + c^2 \E Z_{t-1}Z_{t+h-1}\\
+    & = & 0.
+\end{array}\]
+Finally, note that $\gamma_X$ is only dependent on the difference $r-s$, and thus, $X_t$ is a stationary process with autocovariance function
+\[ \gamma(h) = \begin{cases}
+    b^2+c^2& h = 0,\\
+    bc & h = 1,\\
+    0 & \mbox{otherwise.}
+\end{cases} \]
+
+\subsection*{Solution part (b)}
+
+Again, using the linearity of expectation and variance,
+\[ \E X_t = \cos(ct) \E Z_1 + \sin(ct) \E Z_2 = 0,\]
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    \E|X_t|^2 = \Var(X_t) & = & \cos^2(ct) \Var Z_1 + \sin^2(ct) \Var Z_2\\
+    & = & \cos^2(ct) + \sin^2(ct)\\
+    & = & 1.
+\end{array} \]
+For the autocovariance function,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    \gamma_X(r,s) & = & \E[(\cos(cr) Z_1 + \sin(cr) Z_2) (\cos(cs) Z_1 + \sin(cs) Z_2)]\\[1em]
+    & = & \cos(cr)\cos(cs)\E Z_1^2 + \cos(cr)\sin(cs)\E Z_1 Z_2\\
+    & + & \sin(cr)\cos(cs)\E Z_2Z_1 + \sin(cr)\sin(cs)\E Z_2^2\\[1em]
+    & = & \cos(cr)\cos(cs) + \sin(cr)\sin(cs)\\[1em]
+    & = & \cos(c(r-s)),
+\end{array} \]
+which is only dependent of the value $r-s$, and thus, $\{X_t\}$ is stationary. The autocovariance function can then be defined as
+\[ \gamma(h) = \cos(c(h)) \]
+
+\subsection*{Solution part (c)}
+\[ \E X_t = \cos(ct) \E Z_t + \sin(ct) \E Z_t = 0,\]
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    \E|X_t|^2 = \Var(X_t) & = & \cos^2(ct) \Var Z_t + \sin^2(ct) \Var Z_{t-1}\\
+    & = & \cos^2(ct) + \sin^2(ct)\\
+    & = & 1.
+\end{array} \]
+Now, we can prove that $\{X_t\}$ is not stationary by taking the case when $r-s = 1$,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    \gamma_X(t,t-1) & = & \E[(\cos(ct) Z_t + \sin(ct) Z_{t-1}) (\cos(c(t-1)) Z_{t-1} + \sin(c(t-1)) Z_{t-2})]\\[1em]
+    & = & \cos(ct)\cos(c(t-1)) \E Z_t \E Z_{t-1} + \cos(ct)\sin(c(t-1))\E Z_{t} Z_{t-2}\\
+    & + & \sin(ct)\cos(c(t-1))\E Z_{t-1}Z_{t-1} + \sin(ct)\sin(c(t-1))\E Z_{t-1}Z_{t-2}\\[1em]
+    & = & \sin(ct)\cos(c(t-1))\\[1em]
+\end{array} \]
+This case depends on the value of $t$ (unless $c$ is a multiple of $\pi$). For example, if $c = \pi/2$, then
+\[ \gamma_X(1,0) = \sin(\pi/2)\cos(0) = 1, \]
+\[ \gamma_X(2,1) = \sin(\pi)\cos(\pi/2) = 0.\]
+Therefore, $\{X_t\}$ is not stationary.

@@ -1,0 +1,48 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 1.1.}
+
+Suppose that $X_t = Z_t + \theta Z_{t-1},\; t = 1,2,\ldots,$ where $Z_0, Z_1, Z_2$ are independent random variables, each with moment generating function $\E \exp(\lambda Z_i) = m(\lambda)$.
+\begin{enumerate}[label=(\alph*)]
+    \item Express the joint moment generating function $\E\exp\left( \sum_{i = 1}^{n}\lambda_i X_i \right)$ in terms of the function $m(\cdot)$.
+    \item Deduce from (a) that $\{X_t\}$ is strictly stationary.
+\end{enumerate}
+
+\subsection*{Solution part (a)}
+
+Since $\{Z_t\}$ are independent, for $X_t = Z_t + \theta Z_{t-1}$, the moment generating function:
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \E \exp(\lambda X_t) & = & \E\exp(\lambda (Z_t + \theta Z_{t-1}))\\
+    & = & \E\exp(\lambda Z_t)\cdot \E\exp(\lambda \theta \Z_{t-1}) \\
+    & = & m(\lambda)\cdot m(\theta\lambda)
+\end{array} \]
+On the other hand,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sum_{i = 1}^{n} \lambda_i X_i  & = & \sum_{i = 1}^{n} \lambda_i Z_i + \sum_{i = 1}^{n} \lambda_i \theta Z_{i-1}\\
+    & = & \sum_{i = 1}^{n} \lambda_i Z_i + \sum_{i = 0}^{n-1} \lambda_{i+1} \theta Z_{i}\\
+    & = & \lambda_n Z_n + \left[ \sum_{i = 1}^{n-1} (\lambda_i + \theta \lambda_{i+1}) Z_i \right] + \lambda_1 \theta Z_0.
+\end{array} \]
+Therefore, using a similar argument as before
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \E \exp\left( \sum_{i = 1}^{n} \lambda_i X_i \right) = m(\lambda_n) \cdot \left[ \prod_{i = 1}^{n-1} m(\lambda_i + \theta \lambda_{i+1}) \right] \cdot m(\lambda_1 \theta)
+\end{array} \]
+
+\subsection*{Solution part (b)}
+
+Let $(X_{1},\ldots, X_{n})'$ be a random vector in $\R^{k}$. The moment generating function of this vector is defined as follows, 
+\[ M_{X_{1:n}}(\lambda_{1:n}) = \E \exp(\angles{\lambda_{1:n},X_{1:n}}) = \E \exp\left( \sum_{i = 1}^{n} \lambda_i X_i \right),\; \lambda_{1:n} \in \R^n. \]
+So, we know from the previous part that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    M_{X_{1:n}}(\lambda_{1:n})& = & m(\lambda_n) \cdot \left[ \prod_{i = 1}^{n-1} m(\lambda_i + \theta \lambda_{i+1}) \right] \cdot m(\lambda_1 \theta)\\
+    & = & \E\exp(\lambda_n Z_{n+h}) + \left[ \prod_{i = 1}^{n-1} \E \exp((\lambda_i + \theta \lambda_{i+1}) Z_{i+h}) \right] + \E\exp(\lambda_1 \theta Z_{h})\\
+    & = & \E \exp\left( \sum_{i = 1}^{n} \lambda_i X_{i+h} \right)\\
+    & = & M_{X_{1+h:n+h}}(\lambda_{1:n})
+\end{array} \]
+Since the moment generating function of both $(X_{1},\ldots, X_{n})'$ and $(X_{1+h},\ldots, X_{n+h})'$ coincide, they have the same joint distribution. Thus, $\{X_t\}$ is strictly stationary.
