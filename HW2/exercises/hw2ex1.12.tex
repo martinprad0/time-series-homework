@@ -1,0 +1,87 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 1.12}
+
+Which, if any, of the following functions defined on the integers is the autocovariance function of a stationary time series?
+
+\begin{enumerate}
+    \item[(b)] $f(h) = (-1)^{|h|},$
+    \item[(d)] $f(h) = 1 + \cos \frac{\pi h}{2} - \cos \frac{\pi h}{4},$
+    \item[(f)] $f(h) = \begin{cases}
+        1 & \mbox{if } h = 0,\\
+        .6 & \mbox{if } h = \pm 1,\\
+        0 & \mbox{otherwise}.
+    \end{cases} $
+\end{enumerate}
+
+\subsection*{Solution Item (b)}
+
+For every $n\in \N$, the matrix
+\[ M_n = [f(i-j)]_{i,j = 1}^n = \left[ \begin{matrix}
+    1 & -1 & \cdots\\
+    -1 & 1 & \cdots\\
+    \vdots & \vdots & \ddots
+\end{matrix} \right], \] 
+has eigenvalue $0$ with multiplicity $n-1$ (the first column is repeated $n$ times) and eigenvalue $n$ with multiplicity $1$:
+\[ M \left[ \begin{matrix}
+    1\\-1\\\vdots
+\end{matrix} \right] = \left[ \begin{matrix}
+    n\\-n\\\vdots
+\end{matrix} \right] .\]
+Therefore, since all eigenvalues are non-negative, the function is positive semi-definite, so it corresponds to an autocovariance function of an stationary process.
+
+\subsection*{Solution Item (d)}
+
+With the following code I found numerically that the matrix $[f(i-j)]_{i,j = 1}^n$ is not semidefinite positive when $n = 4$.
+
+\begin{minted}{python}
+    import numpy as np 
+    cos = np.cos
+    sin = np.sin
+    pi = np.pi
+    n = 4
+    matrix = np.matrix([[
+        1 + cos(pi*(i-j)/2) - cos(pi*(i-j)/4) 
+        for i in range(1,n+1)] for j in range(1,n+1)])
+    print(np.linalg.eigvals(matrix).round(10).astype(float))
+\end{minted}
+
+This last line returns \mintinline{python}{array([-0.76536686,  2.76536686,  0.76536686,  1.23463314])}, which has a negative eigenvalue. The numerical error of the algorithm is low enough to consider the negative eigenvalue close enough to the real eigenvalue.
+
+\subsection*{Solution Item (f)}
+
+Let $M_n$ be a $n\times n$ tridiagonal (Toeplitz) matrix with the following form
+\[ M_n = \left[ \begin{matrix}
+    a & c\\
+    b & a & c\\
+    &\ddots & \ddots&\ddots\\
+    & & b & a & c\\
+    & & & b & a
+\end{matrix} \right] .\]
+The eigenvalues of this matrix are 
+\[ \lambda_k = a + 2\sqrt{bc} \cos\frac{k\pi}{n+1},\hspace{1em} k = 1,\ldots, n. \]
+For our case, $a = f(0) = 1$, $b = c = f(\pm 1) = 0.6$, 
+\[ \lambda_k = 1 + 1.2 \cos \frac{k\pi}{n+1}, \]
+so $\lambda_{n} < 1$ for a big enough $n$. In fact, by taking $n = 5$, we have that the smallest eigenvalue is approximately $\lambda_n = -0.0392$ (this was done numerically as the previous exercise)
+
+% (b), (d), (f)
+
+\subsection*{Solution Item (c)}
+
+\textbf{Note:} I solved by mistake this exercise, so I'm leaving the solution here.
+
+The book suggested to find a time series for which $\gamma(h) = 1 + \cos \frac{\pi h}{2} + \cos \frac{\pi h}{4}$. My idea was to use what I proved in exercise 1.7.(c) in the previous homework:
+\[ A_t = a Z_1, \]
+\[ B_t = b Z_2 \cos \frac{\pi t}{2} + b Z_3 \sin \frac{\pi t}{2},  \]
+\[ C_t = c Z_4 \cos \frac{\pi t}{4} + c Z_5 \sin \frac{\pi t}{4}, \]
+for independent $Z_t \sim N(0,1)$. Therefore,
+\[ \gamma_A(h) = a^2,\hspace{1em}\gamma_B(h) = b^2 \cos \frac{\pi h}{2},\hspace{1em} \gamma_C(h) =  c^2 \cos \frac{\pi h}{4}  \]
+Then, since $A_t$, $B_t$ and $C_t$ are uncorrelated, we can use the previous exercise to assert that if
+\[ X_t = A_t + B_t + C_t,\]
+then the autocovariance function is
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2}
+\begin{array}{rcl}
+    \gamma_X(h) & = & \gamma_A(h) + \gamma_B(h) + \gamma_C(h)\\
+    & = & 1 + \cos \frac{\pi h}{2} + \cos \frac{\pi h}{4}.
+\end{array}\]
+By choosing $a = b = c = 1$ we'd prove that $\gamma_X = f$ is a semidefinite positive function.

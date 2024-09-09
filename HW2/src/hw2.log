@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  2 SEP 2024 11:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  6 SEP 2024 04:29
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/martin/Documents/VSCode/Latex/time-series-homework/HW1/src/hw1.tex
-(/home/martin/Documents/VSCode/Latex/time-series-homework/HW1/src/hw1.tex
+**/home/martin/Documents/VSCode/Latex/time-series-homework/HW2/src/hw2.tex
+(/home/martin/Documents/VSCode/Latex/time-series-homework/HW2/src/hw2.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2022/10/12 v3.38 KOMA-Script document class (article)
@@ -738,6 +738,145 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count341
 \@lastruleclass=\count342
 \@thisrulewidth=\dimen305
+) (./code-listing.sty (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count343
+\lst@gtempboxa=\box116
+\lst@token=\toks48
+\lst@length=\count344
+\lst@currlwidth=\dimen306
+\lst@column=\count345
+\lst@pos=\count346
+\lst@lostspace=\dimen307
+\lst@width=\dimen308
+\lst@newlines=\count347
+\lst@lineno=\count348
+\lst@maxwidth=\dimen309
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count349
+\lst@skipnumbers=\count350
+\lst@framebox=\box117
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (/usr/share/texlive/texmf-dist/tex/latex/realboxes/realboxes.sty
+Package: realboxes 2011/08/08 v0.2 Change box commands to read there content as real boxes
+ (/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box118
+) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+)) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (/usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2022/12/12 v2.7 Yet another Pygments shim for LaTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2022/11/30 v1.5 fvextra - extensions and patches for fancyvrb
+ (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2023/01/19 4.5a verbatim text (tvz,hv)
+\FV@CodeLineNo=\count351
+\FV@InFile=\read3
+\FV@TabBox=\box119
+\c@FancyVerbLine=\count352
+\FV@StepNumber=\count353
+\FV@OutFile=\write4
+) (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+) (/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2023/01/19 line numbers on paragraphs v5.1
+\linenopenalty=\count354
+\output=\toks49
+\linenoprevgraf=\count355
+\linenumbersep=\dimen310
+\linenumberwidth=\dimen311
+\c@linenumber=\count356
+\c@pagewiselinenumber=\count357
+\c@LN@truepage=\count358
+\c@internallinenumber=\count359
+\c@internallinenumbers=\count360
+\quotelinenumbersep=\dimen312
+\bframerule=\dimen313
+\bframesep=\dimen314
+\bframebox=\box120
+\linenoamsmath@ams@eqpen=\count361
+LaTeX Info: Redefining \\ on input line 3131.
+)
+\c@FV@TrueTabGroupLevel=\count362
+\c@FV@TrueTabCounter=\count363
+\FV@TabBox@Group=\box121
+\FV@TmpLength=\skip79
+\c@FV@HighlightLinesStart=\count364
+\c@FV@HighlightLinesStop=\count365
+\FV@LoopCount=\count366
+\FV@NCharsBox=\box122
+\FV@BreakIndent=\dimen315
+\FV@BreakIndentNChars=\count367
+\FV@BreakSymbolSepLeft=\dimen316
+\FV@BreakSymbolSepLeftNChars=\count368
+\FV@BreakSymbolSepRight=\dimen317
+\FV@BreakSymbolSepRightNChars=\count369
+\FV@BreakSymbolIndentLeft=\dimen318
+\FV@BreakSymbolIndentLeftNChars=\count370
+\FV@BreakSymbolIndentRight=\dimen319
+\FV@BreakSymbolIndentRightNChars=\count371
+\c@FancyVerbLineBreakLast=\count372
+\FV@LineBox=\box123
+\FV@LineIndentBox=\box124
+\c@FV@BreakBufferDepth=\count373
+\FV@LineWidth=\dimen320
+) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count374
+\calc@Bcount=\count375
+\calc@Adimen=\dimen321
+\calc@Bdimen=\dimen322
+\calc@Askip=\skip80
+\calc@Bskip=\skip81
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count376
+\calc@Cskip=\skip82
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+) (/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+ (/usr/share/texlive/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+runsystem(uname -s > "hw2.w18")...executed.
+
+ (./hw2.w18)
+runsystem(rm -- "hw2.w18")...executed.
+
+) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
+\integerpart=\count377
+\decimalpart=\count378
+)
+Package: xstring 2023/01/14 v1.85 String manipulations (CT)
+) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip83
+\fb@frw=\dimen323
+\fb@frh=\dimen324
+\FrameRule=\dimen325
+\FrameSep=\dimen326
+)
+\minted@appexistsfile=\read4
+\minted@bgbox=\box125
+\minted@code=\write5
+\c@minted@FancyVerbLineTemp=\count379
+\c@minted@pygmentizecounter=\count380
+\@float@every@listing=\toks50
+\c@listing=\count381
+)
+runsystem(mkdir -p _minted-hw2)...executed.
+
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3sys-shell/l3sys-shell.sty
 Package: l3sys-shell 2023-01-24 L3 Experimental system shell functions
 ) (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/bbm.sty
@@ -749,59 +888,63 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 ) (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/dsfont.sty
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )
-\c@theorem=\count343
-\c@definition=\count344
-\c@corollary=\count345
- (./hw1.aux)
-\openout1 = `hw1.aux'.
+\c@theorem=\count382
+\c@definition=\count383
+\c@corollary=\count384
+runsystem(which pygmentize && touch hw2.aex)...executed.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-Package scrbase Info: activating english \abstractname on input line 82.
-Package scrbase Info: activating english \partname on input line 82.
-Package scrbase Info: activating english \figurename on input line 82.
-Package scrbase Info: activating english \tablename on input line 82.
-Package scrbase Info: activating english \contentsname on input line 82.
-Package scrbase Info: activating english \listfigurename on input line 82.
-Package scrbase Info: activating english \listtablename on input line 82.
-Package scrbase Info: activating english \refname on input line 82.
-Package scrbase Info: activating english \indexname on input line 82.
+runsystem(rm hw2.aex)...executed.
+
+ (./hw2.aux)
+\openout1 = `hw2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+Package scrbase Info: activating english \abstractname on input line 86.
+Package scrbase Info: activating english \partname on input line 86.
+Package scrbase Info: activating english \figurename on input line 86.
+Package scrbase Info: activating english \tablename on input line 86.
+Package scrbase Info: activating english \contentsname on input line 86.
+Package scrbase Info: activating english \listfigurename on input line 86.
+Package scrbase Info: activating english \listtablename on input line 86.
+Package scrbase Info: activating english \refname on input line 86.
+Package scrbase Info: activating english \indexname on input line 86.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count346
-\scratchdimen=\dimen306
-\scratchbox=\box116
-\nofMPsegments=\count347
-\nofMParguments=\count348
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count349
-\MPscratchDim=\dimen307
-\MPnumerator=\count350
-\makeMPintoPDFobject=\count351
-\everyMPtoPDFconversion=\toks49
+\scratchcounter=\count385
+\scratchdimen=\dimen327
+\scratchbox=\box126
+\nofMPsegments=\count386
+\nofMParguments=\count387
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count388
+\MPscratchDim=\dimen328
+\MPnumerator=\count389
+\makeMPintoPDFobject=\count390
+\everyMPtoPDFconversion=\toks52
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 82.
+Package hyperref Info: Link coloring ON on input line 86.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -840,74 +983,97 @@ Package hyperref Info: Link coloring ON on input line 82.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 84.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+\c@lstlisting=\count391
+LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 84.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 84.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 88.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) (|ls -1 ../exercises/*) (../exercises/hw1ex1.1.tex [1
+) (|ls -1 ../exercises/*) (../exercises/hw2ex1.11.tex) (../exercises/hw2ex1.12.tex [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (../exercises/hw1ex1.2.tex [2] [3]
-<../pictures/hw1ex1.2.1.png, id=43, 674.52pt x 128.48pt>
-File: ../pictures/hw1ex1.2.1.png Graphic file (type png)
-<use ../pictures/hw1ex1.2.1.png>
-Package pdftex.def Info: ../pictures/hw1ex1.2.1.png  used on input line 67.
-(pdftex.def)             Requested size: 368.57964pt x 70.20743pt.
-<../pictures/hw1ex1.2.2.png, id=45, 670.505pt x 180.675pt>
-File: ../pictures/hw1ex1.2.2.png Graphic file (type png)
-<use ../pictures/hw1ex1.2.2.png>
-Package pdftex.def Info: ../pictures/hw1ex1.2.2.png  used on input line 74.
-(pdftex.def)             Requested size: 368.57964pt x 99.3164pt.
-) (../exercises/hw1ex1.3.tex [4 <../pictures/hw1ex1.2.1.png> <../pictures/hw1ex1.2.2.png>]
-<../pictures/hw1ex1.3.0.png, id=55, 656.4525pt x 79.29625pt>
-File: ../pictures/hw1ex1.3.0.png Graphic file (type png)
-<use ../pictures/hw1ex1.3.0.png>
-Package pdftex.def Info: ../pictures/hw1ex1.3.0.png  used on input line 29.
-(pdftex.def)             Requested size: 368.57964pt x 44.52295pt.
-<../pictures/hw1ex1.3.1.png, id=56, 667.49374pt x 199.74625pt>
-File: ../pictures/hw1ex1.3.1.png Graphic file (type png)
-<use ../pictures/hw1ex1.3.1.png>
-Package pdftex.def Info: ../pictures/hw1ex1.3.1.png  used on input line 39.
-(pdftex.def)             Requested size: 368.57964pt x 110.29967pt.
- [5 <../pictures/hw1ex1.3.0.png>]
-<../pictures/hw1ex1.3.2.png, id=70, 669.50125pt x 184.69pt>
-File: ../pictures/hw1ex1.3.2.png Graphic file (type png)
-<use ../pictures/hw1ex1.3.2.png>
-Package pdftex.def Info: ../pictures/hw1ex1.3.2.png  used on input line 49.
-(pdftex.def)             Requested size: 368.57964pt x 101.68124pt.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+\openout4 = `hw2.pyg'.
 
-Overfull \hbox (5.00032pt too wide) detected at line 78
-[]
- []
+ (./_minted-hw2/monokai.pygstyle) (./_minted-hw2/497A7999AE8BB01EA636BFE80CDA67D9E0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout5 = `hw2.pyg'.
 
-[6 <../pictures/hw1ex1.3.1.png> <../pictures/hw1ex1.3.2.png>]) (../exercises/hw1ex1.4.tex [7]
-Overfull \hbox (33.39734pt too wide) detected at line 31
-[]
- []
+ (./_minted-hw2/59520EF660B7BAACDDE5205E8B8B0DECE0C215FEF787D84E58FE92849694B26F.pygtex) [2]) (../exercises/hw2ex2.3.tex [3] [4]) (../exercises/hw2ex2.5.tex [5]) (../exercises/hw2ex2.6.tex
+\openout4 = `hw2.pyg'.
 
-[8]) (../exercises/hw1ex1.7.tex [9] [10] [11]) [12] (./hw1.aux) ) 
+ (./_minted-hw2/4EF74F16660B8CEBCBF3048D854A864DE0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout4 = `hw2.pyg'.
+
+ (./_minted-hw2/5FADD542D13FE7CF0A21843D27049CA3E0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout4 = `hw2.pyg'.
+
+ [6] (./_minted-hw2/7491B48F4AF2063DB79128F261038D7AE0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout4 = `hw2.pyg'.
+
+ (./_minted-hw2/9E95170A37C0E6066323DE9D82B9C27AE0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout4 = `hw2.pyg'.
+
+ (./_minted-hw2/EF8C807FA52841D07C4D68B5E531B0DBE0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout4 = `hw2.pyg'.
+
+ (./_minted-hw2/830D2EF3AA84A84D550F96BD9F5F124DE0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout5 = `hw2.pyg'.
+
+ (./_minted-hw2/5CF173DD325CBEA0DDE9369060788351E0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout5 = `hw2.pyg'.
+
+ (./_minted-hw2/3F72B67298AD60F07BC8D31CB63613BDE0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout5 = `hw2.pyg'.
+
+ (./_minted-hw2/10F950746598B5E1D92B58A5ACFB5225E0C215FEF787D84E58FE92849694B26F.pygtex)
+<../pictures/hw2ex2.6.1.png, id=55, 872.25874pt x 407.5225pt>
+File: ../pictures/hw2ex2.6.1.png Graphic file (type png)
+<use ../pictures/hw2ex2.6.1.png>
+Package pdftex.def Info: ../pictures/hw2ex2.6.1.png  used on input line 49.
+(pdftex.def)             Requested size: 411.93767pt x 192.4559pt.
+\openout4 = `hw2.pyg'.
+
+ (./_minted-hw2/19AA70D90AAE84763E8FA8D2EE08B5F8E0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout5 = `hw2.pyg'.
+
+ (./_minted-hw2/4A4921FCA22FAAB65259048EDD290B45E0C215FEF787D84E58FE92849694B26F.pygtex)
+\openout5 = `hw2.pyg'.
+
+ (./_minted-hw2/897316929176464EBC9AD085F31E7284E0C215FEF787D84E58FE92849694B26F.pygtex) [7 <../pictures/hw2ex2.6.1.png>]
+<../pictures/hw2ex2.6.2.png, id=67, 821.0675pt x 175.65625pt>
+File: ../pictures/hw2ex2.6.2.png Graphic file (type png)
+<use ../pictures/hw2ex2.6.2.png>
+Package pdftex.def Info: ../pictures/hw2ex2.6.2.png  used on input line 62.
+(pdftex.def)             Requested size: 411.93767pt x 88.12808pt.
+) [8 <../pictures/hw2ex2.6.2.png>] (./hw2.aux)
+runsystem(rm hw2.pyg)...executed.
+
+ ) 
 Here is how much of TeX's memory you used:
- 26992 strings out of 476041
- 518773 string characters out of 5793164
- 1868388 words of memory out of 6000000
- 46919 multiletter control sequences out of 15000+600000
- 524775 words of font info for 81 fonts, out of 8000000 for 9000
+ 31686 strings out of 476041
+ 616946 string characters out of 5793164
+ 1865388 words of memory out of 6000000
+ 51501 multiletter control sequences out of 15000+600000
+ 524723 words of font info for 83 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 110i,13n,133p,10663b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw1.pdf (12 pages, 253070 bytes).
+ 110i,16n,133p,10663b,750s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on hw2.pdf (8 pages, 265952 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 153 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -15,6 +15,9 @@
 % \counterwithin{equation}{subsection}
 % \newcommand\inlinetag{\stepcounter{equation}\ (\theequation)}
 
+%%--CODE---------------------------------------------------------
+\usepackage{code-listing} % code listing
+
 %%--AUTOMATION----------------------------------------------------
 \usepackage{l3sys-shell}
 \ExplSyntaxOn%
@@ -40,6 +43,7 @@
 \def\P{\ensuremath{\mathbf{P}}}
 \def\E{\ensuremath{\textbf{E\,}}}
 \def\Var{\ensuremath{\textbf{Var\,}}}
+\def\cov{\ensuremath{\textbf{cov\,}}}
 \def\corr{\ensuremath{\textbf{corr\,}}}
 \def\1{\ensuremath{\mathds{1}}}
 % Analysis
@@ -48,7 +52,7 @@
 \def\AA{\ensuremath{\mathscr{A}}}
 \def\CC{\ensuremath{\mathscr{C}}}
 \def\MM{\ensuremath{\mathscr{M}}}
-
+\def\HH{\ensuremath{\mathscr{H}}}
 
 % Theorems and more
 \theoremstyle{definition}
@@ -72,7 +76,7 @@
 \makeatother
 
 % Title Info
-\title{Time Series: Homework 1}
+\title{Time Series: Homework 2}
 \author{Martín Prado}
 \date{\AdvanceDate[-1]\today} % For cheating deadlines change 0 to -1
 \publishers{Universidad de los Andes $-$ Bogotá Colombia}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k+kn}{import} \PYG{n+nn}{sympy} \PYG{k}{as} \PYG{n+nn}{sp}
+    \PYG{k+kn}{from} \PYG{n+nn}{sympy} \PYG{k+kn}{import} \PYG{n}{cos}\PYG{p}{,} \PYG{n}{sin} \PYG{c+c1}{\PYGZsh{} cosine and sine functions}
+    \PYG{k+kn}{from} \PYG{n+nn}{sympy.abc} \PYG{k+kn}{import} \PYG{n}{t}\PYG{p}{,} \PYG{n}{h}\PYG{p}{,} \PYG{n}{A}\PYG{p}{,} \PYG{n}{B} \PYG{c+c1}{\PYGZsh{} variables t, h, A, B}
+    \PYG{n}{omega}\PYG{p}{,} \PYG{n}{sigma} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{symbols}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}omega, sigma\PYGZdq{}}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} variables omega and sigma}
+\end{Verbatim}

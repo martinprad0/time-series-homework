@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+    \PYG{n}{cos} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{cos}
+    \PYG{n}{sin} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}
+    \PYG{n}{pi} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}
+    \PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{4}
+    \PYG{n}{matrix} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{matrix}\PYG{p}{([[}
+        \PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n}{cos}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{*}\PYG{p}{(}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{cos}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{*}\PYG{p}{(}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{)}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)]} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)])}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{eigvals}\PYG{p}{(}\PYG{n}{matrix}\PYG{p}{)}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{))}
+\end{Verbatim}

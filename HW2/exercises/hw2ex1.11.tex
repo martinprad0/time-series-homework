@@ -1,0 +1,18 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 1.11.}
+
+If $\{X_t\}$ and $\{Y_t\}$ are uncorrelated stationary sequences, i.e.~if $X_s$ and $Y_t$ are uncorrelated for every $s$ and $t$, show that $\{X_t + Y_t\}$ is stationary with autocovariance function equal to the sum of the autocovariance functions of $\{X_t\}$ and $\{Y_t\}$.
+
+\textbf{Solution:}
+
+\[ \E|X_t+Y_t|^2 \leq \E|X_t|^2 + \E |Y_t|^2 < \infty \]
+\[ \E (X_t + Y_t) = \E X_0 + \E Y_0 \]
+Define $X'_t = X_t - \E X_0$ and $Y'_t = Y_t - \E Y_0$
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \cov(X_t + Y_t, X_s + Y_s) & = & \E[(X_t'+Y_t')(X_s'+Y_s')]\\
+    & = & \E X_t' X_s' + \E X_t' Y_s' + \E X_s' Y_t' + \E Y_t' Y_s'\\
+    & = & \E X_t' X_s' + \E Y_t' Y_s'\\
+    & = & \gamma_X(t-s) + \gamma_Y(t-s).
+\end{array} \]

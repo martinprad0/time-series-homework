@@ -1,0 +1,37 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 2.5.}
+
+If $\MM$ is a closed subspace of the Hilbert space $\HH$ and $x\in \HH$, prove that
+\[ \min_{y\in\MM} \|x-y\| = \max\{|\angles{x,z}| \;:\; z\in \MM^\perp, \|z\| = 1\}. \]
+
+\textbf{Solution:}
+
+By the projection theorem, we know that there exists a linear function $P: \HH \to \HH$ such that
+\[ \min_{y\in\MM} \|x-y\| = \|x-Px\|. \]
+Now, define the linear functional $T: \MM^{\perp} \to \MM^{\perp},\; T(z) = \angles{x,z}$ and note that
+\[ \|T\|_{op} = \max\{|\angles{x,z}| \;:\; z\in \MM^\perp, \|z\| = 1\}. \]
+
+Again, by some corollary of the projection theorem we have $x = Px + (I-P)x$, with $Px \in \MM$ and $(I-P)x \in \MM^{\perp}$. So it follows that for $z \in \MM^\perp$,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2}
+\begin{array}{rcl}
+    T(z) & = & \angles{Px + (I-P)x, z}\\
+    & = & \cancelto{0}{\angles{Px, z}} + \angles{(I-P)x, z}\\
+    & = & \angles{x-Px, z}.
+\end{array} \]
+
+If we take $z = (x-Px)/\|x-Px\| \in \MM^{T}$ we have that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    |T(z)|  & = & \frac{1}{\|x-Px\|}|\angles{x-Px, x-Px}|\\
+    & = & \frac{ \|x-Px\|^2}{\|x-Px\|} = \|x-Px\|.
+\end{array}\]
+\[ \implies \|x-Px\| \leq \|T\|_{op}  \]
+
+On the other hand, by Cauchy-Schwarz inequality,
+\[ |T(z)| \leq \|x-Px\| \|z\| \]
+\[ \implies \|T\|_{op} \leq \|x-Px\|. \]
+
+Therefore,
+\[ \min_{y\in\MM} \|x-y\| = \|x-Px\| = \|T\|_{op} = \max\{|\angles{x,z}| \;:\; z\in \MM^\perp, \|z\| = 1\} \]

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{Gamma\PYGZus{}n} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{n}\PYG{p}{:} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{Matrix}\PYG{p}{([[}\PYG{n}{gamma}\PYG{p}{(}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)]} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)])}
+    \PYG{n}{gamma\PYGZus{}n} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{n}\PYG{p}{:} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{Matrix}\PYG{p}{([}\PYG{n}{gamma}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)])}
+\end{Verbatim}

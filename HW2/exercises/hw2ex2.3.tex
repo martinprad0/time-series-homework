@@ -1,0 +1,43 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 2.3.}
+
+Show that if $\{X_t, t= 0,\pm 1,\ldots\}$ is stationary and $|\theta|<1$ then for each $n$, $\sum_{j = 1}^{m} \theta^j X_{n+1-j}$ converges in mean square as $m \to \infty$.
+
+\textbf{Solution:}
+Assume without restriction that $\mu = \E X_t = 0$. Otherwise, define $X_t' = X_t- \mu$, and note that the following series
+\[ Y_m^{(n)} = \sum_{j = 1}^{m} \theta^j X_{n+1-j} = \sum_{j = 1}^{m} \theta^j X_{n+1-j}' + \mu \sum_{j = 1}^{m} \theta^j , \]
+converges if and only if $\sum_{j = 1}^{m} \theta^j X_{n+1-j}'$ converges.
+
+I don't know where does the series converges for a fixed $n$. However, I can prove that it converges to something by proving that the sequence $\{Y_m^{(n)}\}_{m\in \N}$ is Cauchy (in the mean square metric $\|\cdot\|$).
+
+Assume without restriction that $M > m \in \N$. Then,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{3}
+\begin{array}{rcl}
+    \|Y_{M}^{(n)} - Y_{m-1}^{(n)}\| & = & \E\left[ \left( \sum_{j = m}^{M} \theta^j X_{n+1-j} \right)^2 \right]\\
+    & = & \E\left(  \sum_{i = m}^{M} \sum_{j = m}^{M} \theta^{i+j} X_{n+1-i} X_{n+1-j}  \right)\\
+    & \leq & \sum_{i = m}^{M} \sum_{j = m}^{M} \theta^{i+j} \left| \E[X_{n+1-i} X_{n+1-j}] \right|.
+\end{array} \]
+Then, note that by Cauchy-Schwarz inequality
+\[ \left| \E[X_{n+1-i} X_{n+1-j}] \right| \leq \sqrt{\Var(X_{n+1-i})}\cdot \sqrt{\Var(X_{n+1-j})} = \sigma^2. \]
+Therefore,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \|Y_{M}^{(n)} - Y_{m-1}^{(n)}\| & \leq & \sigma^2 \sum_{i = m}^{M} \sum_{j = m}^{M}\theta^{i+j}\\
+    & = & \sigma^2 \theta^{2m}\sum_{i = 0}^{M-m} \sum_{j = 0}^{M-m} \theta^{i+j}\\
+    & \leq & \sigma^2 \theta^{2m} \sum_{i = 0}^{\infty} \sum_{j = 0}^{\infty} \theta^{i+j}.
+\end{array}\]
+Finally, using the integral test, for $\theta \in (0,1)$
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \int_{0}^{\infty} \int_{0}^{\infty} \theta^{x+y} dx dy & = & \int_{0}^{\infty} \theta^{y} \int_{0}^{\infty} \theta^{x} dx dy\\
+    & =^{(*)} & \int_{0}^{\infty} \theta^{y} \frac{-1}{\ln(\theta)} dy\\
+    & = & \frac{1}{\ln^2(\theta)} < \infty
+\end{array} \]
+\[ \implies \exists K > 0,\;  \|Y_{M}^{(n)} - Y_{m-1}^{(n)}\| \leq K \theta^{2m} \]
+
+Therefore, as $m,M$ go to infinity, $\|Y_{M}^{(n)} - Y_{m-1}^{(n)}\|\to 0$. The last detail $(*)$ is this limit:
+\[ \int_0^{\infty} \theta^{x} dx =^{(*)} \lim_{x \to \infty} \frac{\theta^x}{\ln(\theta)} - \lim_{x \to 0} \frac{\theta^x}{\ln(\theta)}\]
+The first limit goes to $0$ when $0< \theta < 1$.
