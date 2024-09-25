@@ -1,0 +1,36 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 3.13.}
+
+Find the coefficients $\psi_j,\; j = 0,1,2,\ldots,$ in the representation 
+\[ X_t = \sum_{j = 0}^{\infty} \psi_j Z_{t-j} \]
+of the $\ARMA(2,1)$ process,
+\[ (1-.5B+.04B^2) X_t = (1 + .25 B)Z_t,\hspace{2em}  \{Z_t\} \sim \WN(0,\sigma^2).\]
+
+\textbf{Solution:}
+
+In the first place note that
+\[ \phi(z) = 1- .5z+.04 z^2 = \frac{\left(z - 10\right) \left(z - \frac{5}{2}\right)}{25} \]
+
+which doesn't have any zeros in the unit disk. Then, the Taylor series expansion for $1/\phi(z)$ and $|z| \leq 1$, is the following (I used a symbolic calculator again):
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \phi^{-1}(z) & = & \sum_{k=0}^{\infty} z^{k} \left(\frac{-10^{-k}+4\left(\frac{5}{2}\right)^{- k}}{3} \right)\\
+    & = &\sum_{k=0}^{\infty} z^{k} \left(\frac{-10^{-k}+4\left(\frac{10}{4}\right)^{- k}}{3} \right)\\
+    & = & \sum_{k=0}^{\infty} z^{k} \left(\frac{-10^{-k}(4^{1+k}-1)}{3} \right)
+\end{array}. \]
+Finally,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \psi(z) & = & \zeta(z) \theta(z) = \zeta(z) + .25 z \zeta(z)\\
+    & = & \sum_{k=0}^{\infty} z^{k} \left(\frac{-10^{-k}(4^{1+k}-1)}{3} \right) + \frac{1}{4} \sum_{k=0}^{\infty} z^{k} \left(\frac{-10^{-k}(4^{1+k}-1)}{3} \right) \\
+    & = & \frac{4}{3} + \sum_{k=1}^{\infty} z^{k} \left(\frac{10^{-k}(4^{1+k}-1) + \frac{1}{4}\cdot 10^{-k+1}(4^{1+k-1}-1)}{3} \right)\\
+    & = & \frac{4}{3} + \frac{1}{3} \sum_{k=1}^{\infty} z^{k} \frac{(13\cdot 4^k - 7)}{2\cdot 10^{-k}}
+\end{array} \]
+
+Thus,
+\[ \psi_k = \begin{cases}
+    \dfrac{4}{3},& k = 0\\
+    \dfrac{13\cdot 4^k - 7}{6\cdot 10^{-k}}, & \mbox{o.w.}
+\end{cases} \]

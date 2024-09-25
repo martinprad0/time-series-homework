@@ -1,0 +1,13 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 3.5.}
+
+Let $\{Y_t,\; t = 0,\pm 1,\ldots\}$ be a stationary time series. Show that there exists a stationary solution $\{X_t\}$ of the difference equations,
+\[ X_t - \phi_1 X_{t-1} - \cdots - \phi_p X_{t-p} = Y_t + \theta_1 Y_{t-1} + \cdots + \theta_q Y_{t-q}, \]
+if $\phi(z) = 1 - \phi_1 z - \cdots - \phi_p z^{p} \neq 0$ for $|z| = 1$. Furthermore if $\phi(z) \neq 0$ for $|z| \leq 1$ show that $\{X_t\}$ is a causal function of $\{Y_t\}$.
+
+\textbf{Solution:}
+
+Note that for the proof of Theorem 3.1.1, the fact that $Z_t$ is white noise is never used. We only use the fact that $|z|\leq 1$ to prove the existence of a power series $\zeta(z)$ such that $\zeta(B)$ exists and satisfies
+\[ 1/\phi(z) = \zeta(z) \implies X_t = \zeta(B) \theta(B) Y_t. \]
+
+However, I don't know exactly why not having roots at the unit circle implies stationarity of the solution.

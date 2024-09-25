@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  24 SEP 2024 22:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 39) (preloaded format=pdflatex 2024.6.29)  25 SEP 2024 11:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/martin/Documents/VSCode/Latex/time-series-homework/HW2/src/hw2.tex
-(/home/martin/Documents/VSCode/Latex/time-series-homework/HW2/src/hw2.tex
+**/home/martin/Documents/VSCode/Latex/time-series-homework/HW3/src/hw3.tex
+(/home/martin/Documents/VSCode/Latex/time-series-homework/HW3/src/hw3.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2022/10/12 v3.38 KOMA-Script document class (article)
@@ -849,10 +849,10 @@ Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "hw2.w18")...executed.
+runsystem(uname -s > "hw3.w18")...executed.
 
- (./hw2.w18)
-runsystem(rm -- "hw2.w18")...executed.
+ (./hw3.w18)
+runsystem(rm -- "hw3.w18")...executed.
 
 ) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
 \integerpart=\count377
@@ -875,7 +875,7 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \@float@every@listing=\toks50
 \c@listing=\count381
 )
-runsystem(mkdir -p _minted-hw2)...executed.
+runsystem(mkdir -p _minted-hw3)...executed.
 
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3sys-shell/l3sys-shell.sty
 Package: l3sys-shell 2023-01-24 L3 Experimental system shell functions
@@ -891,40 +891,40 @@ Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 \c@theorem=\count382
 \c@definition=\count383
 \c@corollary=\count384
-runsystem(which pygmentize && touch hw2.aex)...executed.
+runsystem(which pygmentize && touch hw3.aex)...executed.
 
-runsystem(rm hw2.aex)...executed.
+runsystem(rm hw3.aex)...executed.
 
- (./hw2.aux)
-\openout1 = `hw2.aux'.
+ (./hw3.aux)
+\openout1 = `hw3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-Package scrbase Info: activating english \abstractname on input line 86.
-Package scrbase Info: activating english \partname on input line 86.
-Package scrbase Info: activating english \figurename on input line 86.
-Package scrbase Info: activating english \tablename on input line 86.
-Package scrbase Info: activating english \contentsname on input line 86.
-Package scrbase Info: activating english \listfigurename on input line 86.
-Package scrbase Info: activating english \listtablename on input line 86.
-Package scrbase Info: activating english \refname on input line 86.
-Package scrbase Info: activating english \indexname on input line 86.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+Package scrbase Info: activating english \abstractname on input line 91.
+Package scrbase Info: activating english \partname on input line 91.
+Package scrbase Info: activating english \figurename on input line 91.
+Package scrbase Info: activating english \tablename on input line 91.
+Package scrbase Info: activating english \contentsname on input line 91.
+Package scrbase Info: activating english \listfigurename on input line 91.
+Package scrbase Info: activating english \listtablename on input line 91.
+Package scrbase Info: activating english \refname on input line 91.
+Package scrbase Info: activating english \indexname on input line 91.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count385
@@ -944,7 +944,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 86.
+Package hyperref Info: Link coloring ON on input line 91.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -990,90 +990,44 @@ Package caption Info: End \AtBeginDocument code.
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 \c@lstlisting=\count391
-LaTeX Font Info:    Trying to load font information for U+msa on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 88.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 88.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 93.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) (|ls -1 ../exercises/*) (../exercises/hw2ex1.11.tex) (../exercises/hw2ex1.12.tex [1
+) (|ls -1 ../exercises/*) (../exercises/hw3ex3.01.tex
+Overfull \hbox (30.22324pt too wide) in paragraph at lines 24--25
+[]\OT1/cmr/m/n/10.95 The roots of $\OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 z\OT1/cmr/m/n/10.95 )$ are $[]$ which have mod-ule ap-prox-i-mately $[2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 596\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 437]$
+ []
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-\openout4 = `hw2.pyg'.
+Overfull \hbox (9.43097pt too wide) in paragraph at lines 26--28
+[]\OT1/cmr/m/n/10.95 The roots of $\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 z\OT1/cmr/m/n/10.95 )$ are $[]$ which have mod-ule ap-prox-i-mately $[1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 195\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 195]$
+ []
 
- (./_minted-hw2/monokai.pygstyle) (./_minted-hw2/497A7999AE8BB01EA636BFE80CDA67D9E0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout5 = `hw2.pyg'.
+[1
 
- (./_minted-hw2/59520EF660B7BAACDDE5205E8B8B0DECE0C215FEF787D84E58FE92849694B26F.pygtex) [2]) (../exercises/hw2ex2.3.tex [3] [4]) (../exercises/hw2ex2.5.tex [5]) (../exercises/hw2ex2.6.tex
-\openout4 = `hw2.pyg'.
 
- (./_minted-hw2/4EF74F16660B8CEBCBF3048D854A864DE0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout4 = `hw2.pyg'.
-
- (./_minted-hw2/5FADD542D13FE7CF0A21843D27049CA3E0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout4 = `hw2.pyg'.
-
- [6] (./_minted-hw2/7491B48F4AF2063DB79128F261038D7AE0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout4 = `hw2.pyg'.
-
- (./_minted-hw2/9E95170A37C0E6066323DE9D82B9C27AE0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout4 = `hw2.pyg'.
-
- (./_minted-hw2/EF8C807FA52841D07C4D68B5E531B0DBE0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout4 = `hw2.pyg'.
-
- (./_minted-hw2/830D2EF3AA84A84D550F96BD9F5F124DE0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout5 = `hw2.pyg'.
-
- (./_minted-hw2/5CF173DD325CBEA0DDE9369060788351E0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout5 = `hw2.pyg'.
-
- (./_minted-hw2/3F72B67298AD60F07BC8D31CB63613BDE0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout5 = `hw2.pyg'.
-
- (./_minted-hw2/10F950746598B5E1D92B58A5ACFB5225E0C215FEF787D84E58FE92849694B26F.pygtex)
-<../pictures/hw2ex2.6.1.png, id=55, 872.25874pt x 407.5225pt>
-File: ../pictures/hw2ex2.6.1.png Graphic file (type png)
-<use ../pictures/hw2ex2.6.1.png>
-Package pdftex.def Info: ../pictures/hw2ex2.6.1.png  used on input line 49.
-(pdftex.def)             Requested size: 411.93767pt x 192.4559pt.
-\openout4 = `hw2.pyg'.
-
- (./_minted-hw2/19AA70D90AAE84763E8FA8D2EE08B5F8E0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout5 = `hw2.pyg'.
-
- (./_minted-hw2/4A4921FCA22FAAB65259048EDD290B45E0C215FEF787D84E58FE92849694B26F.pygtex)
-\openout5 = `hw2.pyg'.
-
- (./_minted-hw2/897316929176464EBC9AD085F31E7284E0C215FEF787D84E58FE92849694B26F.pygtex) [7 <../pictures/hw2ex2.6.1.png>]
-<../pictures/hw2ex2.6.2.png, id=67, 821.0675pt x 175.65625pt>
-File: ../pictures/hw2ex2.6.2.png Graphic file (type png)
-<use ../pictures/hw2ex2.6.2.png>
-Package pdftex.def Info: ../pictures/hw2ex2.6.2.png  used on input line 62.
-(pdftex.def)             Requested size: 411.93767pt x 88.12808pt.
-) [8 <../pictures/hw2ex2.6.2.png>] (./hw2.aux)
-runsystem(rm hw2.pyg)...executed.
-
- ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (../exercises/hw3ex3.03.tex [2]) (../exercises/hw3ex3.05.tex) (../exercises/hw3ex3.08.tex [3]) (../exercises/hw3ex3.09.tex [4]) (../exercises/hw3ex3.13.tex [5]) [6] (./hw3.aux) ) 
 Here is how much of TeX's memory you used:
- 31686 strings out of 476041
- 616946 string characters out of 5793164
+ 31463 strings out of 476041
+ 608396 string characters out of 5793164
  1865388 words of memory out of 6000000
- 51501 multiletter control sequences out of 15000+600000
- 524723 words of font info for 83 fonts, out of 8000000 for 9000
+ 51334 multiletter control sequences out of 15000+600000
+ 522934 words of font info for 75 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 110i,16n,133p,10663b,750s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on hw2.pdf (8 pages, 265938 bytes).
+ 110i,9n,133p,10663b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on hw3.pdf (6 pages, 138634 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 102 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

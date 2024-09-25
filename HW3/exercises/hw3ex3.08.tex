@@ -1,0 +1,35 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 3.8.}
+
+The process $X_t = Z_t - Z_{t-1},\; \{Z_t\} \sim \WN\{0,\sigma^2\}$, is not invertible according to Definition 3.1.4. Show however that $Z_t \in \ol{\sp} \{ X_j,\; -\infty < j \leq t\}$ by considering the mean square limit of the sequence $\sum_{j = 0}^n (1-j/n)X_{t-j}$ as $n\to \infty$.
+
+\textbf{Solution:}
+
+Note that $X_t$ is a $\MA(2)$ process given by
+$X_t = \theta(B) Z_t, (1- B)$
+and note that $\theta(z) = 1-z$ has a zero in $z = 1$. Therefore, by theorem 3.1.2., $\{X_t\}$ is not invertible.
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    Z_t & = & X_t + Z_{t-1}\\
+    & = & \vdots\\
+    & = & \left( \sum_{k = 0}^{n} X_{t-k} \right) + Z_{t-n-1}
+\end{array} \]
+
+Now, take $Z_t^{(n)} = \sum_{j = 0}^n (1-j/n)X_{t-j}$
+
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \|Z_t^{(n)} - Z_t\|^{2} & = & \left\| \left( \sum_{k = 0}^{n} X_{t-k} \right) + Z_{t-n-1} -  \sum_{j = 0}^n (1-j/n)X_{t-j}\right\|^{2}\\
+    & = & \left\| Z_{t-n-1} + \sum_{j = 0}^n \frac{j}{n} X_{t-j}\right\|^{2}\\
+    & = & \left\| Z_{t-n-1} + \sum_{j = 0}^n \frac{j}{n} Z_{t-j} - \sum_{j = 0}^n \frac{j}{n} Z_{t-j-1} \right\|^{2}\\
+    & = & \left\| Z_{t-n-1} + \sum_{j = 0}^n \frac{j}{n} Z_{t-j} - \sum_{j = 1}^{n+1} \frac{j-1}{n} Z_{t-j} \right\|^{2}\\
+    & = & \left\| Z_{t-n-1}  + \frac{1}{n} Z_{t}+ \sum_{j = 1}^n \frac{1}{n} Z_{t-j} -  Z_{t-n-1} \right\|^{2}\\
+    & = & \left\| \sum_{j = 0}^n \frac{1}{n} Z_{t-j} \right\|^{2}\\
+\end{array} \]
+
+Finally, by the Law of Large Numbers, $\sum_{j = 0}^n \frac{1}{n} Z_{t-j} \to \E Z_t = 0$ with probability 1. Therefore,
+\[ \left\| \sum_{j = 0}^n \frac{1}{n} Z_{t-j} \right\|^{2} = \E \left| \sum_{j = 0}^n \frac{1}{n} Z_{t-j} \right|^2 \overset{P}{\to} 0. \]
+It follows that since $Z_t$ is the limit of $Z_t^{(n)} \in \sp\{ X_j,\; -\infty < j \leq t\}$, $Z_t \in \ol{\sp}\{ X_j,\; -\infty < j \leq t\}$.

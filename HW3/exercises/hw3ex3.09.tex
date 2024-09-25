@@ -1,0 +1,27 @@
+% chktex-file 3 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 3.9.}
+
+Suppose $\{X_t\}$ is a two-sided moving average
+\[ X_t = \sum_{j = -\infty}^{\infty} \psi_j Z_{t-j},\hspace{2em} \{Z_t \} \sim \WN(0,\sigma^2) \]
+where $\sum_j|\psi_j| < \infty$. Show that $\sum_{h = -\infty}^{\infty} |\gamma(h)| < \infty$ where $\gamma(\cdot)$ is the autocovariance function of $\{X_t\}$.
+
+\textbf{Solution:}
+
+Note that from the definition,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \gamma(h) & = & \cov(X_t, X_{t+h})\\
+    & = & \sum_{i = -\infty}^{\infty} \sum_{j = -\infty}^{\infty} \psi_i \psi_j \E Z_{t-i}Z_{t+h-j}\\
+    & = & \sigma^2 \sum_{j = -\infty}^{\infty} \psi_{j}\psi_{j+h}
+\end{array} \]
+
+Finally,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sum_{h = -\infty}^{\infty} |\gamma(h)| & = & \sigma^2 \sum_{h = -\infty}^{\infty} \left| \sum_{j = -\infty}^{\infty} \psi_{j}\psi_{j+h} \right|\\
+    & \leq & \sigma^2 \sum_{h = -\infty}^{\infty} \sum_{j = -\infty}^{\infty}|\psi_{j}||\psi_{j+h}|\\
+    & = & \sigma^2 \sum_{j = -\infty}^{\infty} |\psi_{j}| \sum_{h = -\infty}^{\infty}|\psi_{j+h}|\\
+    & \leq &  \sigma^2 \left( \sum_{j = -\infty}^{\infty} |\psi_{j}| \right)^2 < \infty
+\end{array} \]
