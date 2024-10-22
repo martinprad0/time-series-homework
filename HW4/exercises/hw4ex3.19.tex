@@ -1,0 +1,42 @@
+% chktex-file 3 chktex-file 12 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 3.19.}
+
+Suppose that $\{X_t\}$ and $\{Y_t\}$ are two zero-mean stationary processes with the same autocovariance function and that $\{Y_t\}$ is an ARMA$(p, q)$ process. Show that $\{X_t\}$ must also be an ARMA$(p, q)$ process. (Hint: If $\phi_1, \dots, \phi_p$ are the AR coefficients for $\{Y_t\}$, show that $\{W_t := X_t - \phi_1 X_{t-1} - \cdots - \phi_p X_{t-p}\}$ has an autocovariance function which is zero for lags $|h| > q$. Then apply Proposition 3.2.1 to $\{W_t\}$.)
+
+\subsection*{Solution}
+
+Let $\gamma(\cdot)$ be the autocovariance function for both $\{X_t\}$ and $\{Y_t\}$.
+
+If $\{Y_t\}$ is an $\ARMA(p,q)$ process, then there exists $\{Z_t\} \sim \WN(0,\sigma^2)$ (with $\sigma > 0$) and functions $\phi(z) = 1-\phi_1z -\cdots-\phi_p z^p$, $\theta(z) = 1 + \theta_1 z + \cdots + \theta_q z^q$ such that
+\[ \phi(B) X_t = \theta(B) Z_t. \]
+Too avoid ambiguity let $\theta_0 = 1$ and $\theta_q \neq 0$.
+
+Now, define $W_t = \phi(B) X_t$ and $W'_t = \phi(B) Y_t$. Then note that $\E(W_t) = 0$ and $\E(W_t^2) < \infty$. In order to prove there exists an autocovariance function for $\{W_t\}$, note that $\{W'_t\}$ is stationary because $W'_t = \theta(B) Z_t$ is a sum of uncorrelated stationary random variables. Therefore, there exists an autocovariance function $\omega(\cdot) = \cov(W_t,W_{t+h}),\; \forall t \in \Z$, and from the following calculations we can deduce that the autocovariance function of the process $\{W_t\}$ is $\omega$ too:
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \cov(W_t,W_{t+h}) & = & \E[W_t W_{t+h}]\\
+    & = & \sum_{i = 0}^{p}\sum_{j = 0}^{p} \phi_i \phi_j \E[X_{t-i} X_{t+h-j}]\\
+    & = & \sum_{i = 0}^{p}\sum_{j = 0}^{p} \phi_i \phi_j \gamma(h-j+i)\\
+    & = & \sum_{i = 0}^{p}\sum_{j = 0}^{p} \phi_i \phi_j \E[Y_{t-i} Y_{t+h-j}]\\
+    & = & \E[W'_t W'_{t+h}] = \omega(h).\\
+\end{array} \]
+
+Then, note that for $|h| > q$, $\E[Z_{h-i}Z_{-j}] = 0$ for every $i,j \in \{0,\ldots, q\}$ because in order to $\E[Z_{h-i}Z_{-j}] = \sigma^2 \neq 0$, it must happen that $h-i = -j \;\iff\; h = i-j$ but in this case $i-j \leq q$. Therefore,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2}
+\begin{array}{rcl}
+    \omega(h) & = & \E[W'_h W'_0]\\
+    & = & \E[\theta(B)Z_h \theta(B) Z_0]\\
+    & = & \sum_{i = 0}^q \sum_{j = 0}^q \theta_{i} \theta_{j} \E[Z_{h-i}Z_{-j}]\\
+    & = & 0.
+\end{array} \]
+
+Finally, if $i,j \in \{0,\ldots, q\}$, then $\E[Z_{q-i}Z_{-j}] \neq 0$ only if $i = q, j = 0$. Thus,
+\[ \omega(q) = \sum_{i = 0}^q \sum_{j = 0}^q \theta_{i} \theta_{j} \E[Z_{q-i}Z_{-j}] = \theta_{q} \theta_{0} \sigma^2 \neq 0. \]
+
+\textbf{Proposition 3.2.1.} If $\{ W_t \}$ is a zero-mean stationary process with autocovariance function $\omega(\cdot)$ such that $\omega(h) = 0$ for $|h| > q$ and $\omega(q) \neq 0$, then $\{W_t\}$ is an $MA(q)$ process, i.e. there exists a white noise process $\{Z'_t\}$ such that
+\[ W_{t}=Z'_{t}+\theta_{1}Z'_{t-1}+\cdots+\theta_{q}Z'_{t-q}. \]
+
+So from this proposition follows that $X_t$ is and $\ARMA(p,q)$ process.
+

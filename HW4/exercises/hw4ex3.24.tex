@@ -1,0 +1,50 @@
+% chktex-file 3 chktex-file 12 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 3.24.}
+
+Let $\{X_t\}$ be the stationary solution of $\phi(B)X_t = \theta(B)Z_t$, where $\{Z_t\} \sim \text{WN}(0, \sigma^2)$, $\phi(z) \neq 0$ for all $z \in \mathbb{C}$ such that $|z| = 1$, and $\phi(\cdot)$ and $\theta(\cdot)$ have no common zeroes. If $A$ is any zero-mean random variable in $L^2$ which is uncorrelated with $\{X_t\}$ and if $|z_0| = 1$, show that the process $\{X_t + A z_0^t\}$ is a complex-valued stationary process (see Definition 4.1.1) and that $\{X_t + A z_0^t\}$ and $\{X_t\}$ both satisfy the equations $(1 - z_0 B)\phi(B)X_t = (1 - z_0 B)\theta(B)Z_t.$
+
+\subsection*{Solution}
+
+\textbf{Definition 4.1.1.} The process $\{X_{t} \}$ is a complex-valued stationary process if $E | X_{t} |^{2}  <  \infty, \; E X_{t}$ is independent of $t$ and $E ( X_{t+h} {\bar{X}}_{t} )$ is independent of $t$ 
+As already pointed out in Example 2.2.3, Remark 1, the complex-valued random variables $x$ on $( \Omega, {\mathcal{F}}, P )$ satisfying $E | X |^{2} < \infty$ constitute a Hilbert space with the inner product
+\[ \langle X, \, Y \rangle=E ( X \, \bar{Y} ). \]
+
+\begin{itemize}
+    \item For $\E[|X_t + Az_0^t|^2]$, since $A$ and $X_t$ are uncorrelated, $\E[X_t \ol{A}] = \E[A \ol{X_t}] = 0$. Thus,
+    \[ \displaystyle \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{1.5}
+    \begin{array}{rcl}
+        \E[|X_t + Az_0^t|^2] & = & \E[(X_t + Az_0^t)(\ol{X_t + Az_0^t})]\\
+        & = & \E[X_t \ol{X_t}] + z_0^t \E[X_t \ol{A}] + z_0^t \E[A \ol{X_t}] + |z_0|^{2t} \E[A \ol{A}]\\
+        & = & \underbrace{\E[|X_t|^2]}_{<\infty} + 0 + 0 + \underbrace{\E[|A|^2]}_{<\infty}\\
+        & < & \infty.
+    \end{array}\]
+    \item For $\E[|X_t + Az_0^t|^2]$, since $\{X_t\}$ is stationary, $\E[X_t] = \mu$ for every $t\in \Z$. Therefore,
+    \[ \E[X_t + z_0^t A] = \E[X_t] + z_0^t \E[A] = \mu + 0 = \mu. \]
+    \item For the existence of an autocovariance function,
+    \[ \displaystyle \everymath{\displaystyle}
+    \arraycolsep=1.8pt\def\arraystretch{1.5}
+    \begin{array}{rcll}
+        \E[(X_{t+h} + z_0^t A - \mu)(\ol{X_{t} + z_0^t A - \mu})] & = & & \E[(X_{t+h}-\mu) (\ol{X_t-\mu})] + z_0^t \E[(X_{t+h}-\mu) \ol{A}]\\
+        & & + & z_0^t \E[A (\ol{X_t}-\mu)] + \underbrace{|z_0|^{2t}}_{=1} \E[A \ol{A}]\\[1.5em]
+        & = & & \gamma(h) + 0 + 0 + \E[|A|^2]
+    \end{array}\]
+\end{itemize}
+
+Finally, note that by defining $Y_t = A z_0^t$, then $B Y_t = A z_0^{t-1} = \frac{Y_t}{z_0}$. Thus,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    (1-z_0 B) \phi(B) Y_t & = & \phi(B) Y_t - z_0 \sum_{n = 0}^{\infty} \phi_i B Y_t\\
+    & = & \phi(B) Y_t - \sum_{n = 0}^{\infty} \phi_i \frac{z_0 Y_t}{z_0}\\
+    & = & \phi(B) Y_t - \phi(B) Y_t = 0.
+\end{array} \]
+
+Since it's trivially true that $(1-z_0 B) \phi(B) X_t = (1-z_0 B) \theta(B) Z_t$ and $(1-z_0 B) \phi(B) Y_t = 0$, it follows that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    (1-z_0 B) \phi(B) (X_t+Y_t) & = & (1-z_0 B) \phi(B) X_t + (1-z_0 B) \phi(B) Y_t\\
+    & = & (1-z_0 B) \phi(B) X_t + 0\\
+    & = & (1-z_0 B) \theta(B) Z_t.
+\end{array}  \]

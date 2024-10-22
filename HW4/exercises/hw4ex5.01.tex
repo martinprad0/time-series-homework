@@ -1,0 +1,25 @@
+% chktex-file 3 chktex-file 12 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 5.1.}
+
+Let $\{X_{\iota} \}$ be a stationary process with mean $\mu$ . Show that
+\[ P_{\overline{{{\mathrm{s p}}}} | \, 1 \, X_{1}, \, \ldots, \, X_{n} |} X_{n+h}=\mu\,+\, P_{\overline{{{\mathrm{s p}}}} \{ Y_{1}, \, \ldots, \, Y_{n} \}} Y_{n+h}, \]
+where $\left\{Y_{t} \right\}=\left\{X_{t}-\mu\right\}$.
+
+
+\subsection*{Solution}
+Let $\hat{X}_{n+h} = P_{\overline{{{\mathrm{s p}}}} | \, 1 \, X_{1}, \, \ldots, \, X_{n} |} X_{n+h}$ and $\hat{Y}_{n+h} = P_{\overline{{{\mathrm{s p}}}} \{ Y_{1}, \, \ldots, \, Y_{n} \}} Y_{n+h}$. Then, from the definition of projection, note that for some $\{\psi_i\}_{i = 1}^{n}$,
+\[ \hat{Y}_{n+h} = \sum_{i = 1}^n \phi_i Y_{n+1-i}. \]
+Therefore,
+\[ \E[X_{n+h} - \mu - \hat{Y}_{n+h}] = \E[X_{n+h} - \mu] - \sum_{i = 1} \phi_i \E[Y_{n+1-i}] = 0 \]
+Finally, for every $k \in \{1,\ldots, n\}$
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    \angles{X_{n+h} - \mu - \hat{Y}_{n+h},\; X_k} & = & \E[(X_{n+h} - \mu - \hat{Y}_{n+h})(X_k - \mu)]\\
+    & = & \E[(Y_{n+h} - \hat{Y}_{n+h})(Y_k)]\\
+    & = & 0,
+\end{array} \]
+and, since $\E[1] = 1$,
+\[ \angles{X_{n+h} - \mu - \hat{Y}_{n+h},\; 1} = \E[(X_{n+h} - \mu - \hat{Y}_{n+h})(1 - 1)] = 0.\]
+From the uniqueness of the projection, it follows that $\hat{X}_{n+h} = \mu + \hat{Y}_{n+h}$.
+

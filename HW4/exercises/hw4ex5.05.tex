@@ -1,0 +1,51 @@
+% chktex-file 3 chktex-file 12 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 5.5.}
+
+Let $\{X_{t} \}$ be the $\mathbf{M A} ( 1 )$ process of Example 5.2.1. $\mathrm{I f} \left| \theta\right| < 1$, show that as $n \to\infty$,
+\begin{enumerate}[label=(\alph*)]
+    \item $\| X_{n}-{\hat{X}}_{n}-Z_{n} \| \to 0$,
+    \item $v_{n} \rightarrow\sigma^{2}$,
+    \item $\theta_{n 1} \rightarrow\theta.$ (Note that $\theta=E ( X_{n+1} Z_{n} ) \sigma^{-2}$ and $\theta_{n 1}=v_{n-1}^{-1} E ( X_{n+1} ( X_{n}-\hat{X}_{n} ) ). )$ 
+\end{enumerate}
+
+\subsection*{Solution}
+
+In the first place, there exists $K \geq 0$ such that
+\[ \everymath{\displaystyle} 
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    \|X_n - \hat{X}_n - Z_n \| & = & \|\theta Z_{t-1} - \theta (X_{n-1} - \hat{X}_{n-1})\|\\
+    & = & |\theta| \|X_{n-1} - \hat{X}_{n-1} - Z_{t-1} \|\\
+    & = & \vdots \\
+    & = & |\theta|^{n-1} \|X_{0} - \hat{X}_{0} - Z_{0} \| = |\theta|^{n-1}  K
+\end{array} \]
+Therefore, since $|\theta|< 1$, it follows that $\lim_{n}\|X_n - \hat{X}_n - Z_n \| = 0$.
+
+Now, I'm going to prove using induction that
+\[ v_n = \sigma^2 \frac{\sum_{i = 0}^{n} \theta^{2i}}{\sum_{i = 0}^{n-1} \theta^{2i}}. \]
+The base case is true because $v_0 = \sigma^2 (1+\theta^2)$. For the inductive step,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    v_{n+1} & = & [1+\theta^2 - \theta^2 \sigma^2 v_{n}^{-1}]\sigma^2\\
+    & = & \left[ 1+\theta^2 - \theta^2 \frac{\sum_{i = 0}^{n-1} \theta^{2i}}{\sum_{i = 0}^{n} \theta^{2i}} \right]\sigma^2\\
+    & = & \sigma^2 \frac{(1+\theta^2)\sum_{i = 0}^{n} \theta^{2i} - \theta^2 \sum_{i = 0}^{n-1} \theta^{2i}}{\sum_{i = 0}^{n} \theta^{2i}}\\
+    & = & \sigma^2 \frac{\sum_{i = 0}^{n} \theta^{2i} + \sum_{i = 1}^{n+1} \theta^{2i} - \sum_{i = 1}^{n} \theta^{2i}}{\sum_{i = 0}^{n} \theta^{2i}}\\
+    & = & \sigma^2 \frac{\sum_{i = 0}^{n+1} \theta^{2i}}{\sum_{i = 0}^{n} \theta^{2i}}.
+\end{array} \]
+
+Therefore, using the partial geometric series expansion ($\theta^2 < 1$), we know that
+\[ \everymath{\displaystyle} v_n = \sigma^2 \frac{\frac{1-\theta^{2n+2}}{1-r}}{\frac{1-\theta^{2n}}{1-r}} = \sigma^2\frac{1-\theta^{2n+2}}{1-\theta^{2n}}, \]
+and we know $v_n$ is decreasing because since $\theta^2 < 1$ that implies
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rrcl}
+   & \theta^{2n+2} & < & \theta^{2n+2}\\
+   \implies & 1-\theta^{2n} & < & 1 -\theta^{2n}\\
+   \implies & \frac{v_{n-1}}{v_{n}} & = & \frac{1-\theta^{2n}}{1-\theta^{2n+2}} < 1
+\end{array} \]
+This also implies that $r_n$ is decreasing. As a matter of fact, this proves that $v_n \to \sigma^2$ and $r_n \to 1$ as $n \to \infty$ because $\theta^{2n} \to 0$.
+
+Finally, since $v_n \to \sigma^2$, it follows that
+\[ \theta_{n1} = \theta \frac{\sigma^2}{v_{n-1}} \to \theta, \]
+as $n \to \infty$.

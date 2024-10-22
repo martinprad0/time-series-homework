@@ -1,0 +1,76 @@
+% chktex-file 3 chktex-file 12 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 3.23.}
+
+Use Definition 3.4.2 and the results of Problem 3.22 to determine the partial autocorrelation function of a moving average of order 1.
+
+\subsection*{Solution}
+
+\textbf{Definition 3.4.2.} The partial autocorrelation $\alpha( k )$ of $\{X_{t} \}$ at lag $\boldsymbol{k}$ is
+\[  
+\alpha( k )=\phi_{k k}, \qquad k \geq1,
+\]
+where $\phi_{k k}$ is uniquely determined by the following system
+\[ \left[  \begin{matrix}
+    a & b & 0 & \cdots & 0\\
+    b & a & b & \cdots & 0\\
+    0 & b & a & \cdots & 0\\
+    \vdots & \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & 0 & \cdots & a 
+\end{matrix} \right] 
+\left[ \begin{matrix}
+    \phi_{n,1} \\ \phi_{n,2} \\ \phi_{n,3} \\ \vdots \\ \phi_{n,n}
+\end{matrix} \right]
+ = 
+ \left[ \begin{matrix}
+    b \\ 0 \\ 0 \\ \vdots \\ 0
+\end{matrix} \right]
+\]
+the standard linear time elimination algorithm for tridiagonal systems gives us the following recursive solution
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1}
+\begin{array}{lr}
+    \phi_{n,n} = \alpha_n = \alpha(n),\\
+    \phi_{n,i} = \alpha_i - \beta_i \phi_{n,i+1} & \hspace{2em} i \leq n-1
+\end{array}\]
+with
+\[ \everymath{\displaystyle}\arraycolsep=2.8pt\def\arraystretch{2.5}
+    \alpha_i = 
+    \begin{cases}
+        \frac{b}{a}, & i = 1,\\[1em]
+        \frac{- b \alpha_{i-1}}{a - b \beta_{i-1}}& i \geq 2,
+    \end{cases} ,
+    \hspace{4em}
+    \beta_i = 
+    \begin{cases}
+        \frac{b}{a}, & i = 1,\\[1em]
+        \frac{b}{a - b \beta_{i-1}}& i \geq 2,
+    \end{cases} .
+\]
+We then have,
+\[ \alpha_2 = \frac{-b \alpha_1}{a-b \beta_1} = \frac{-b^2 a^{-1}}{a-b^2 a^{-1}} = \frac{b^2}{b^2 - a^2} \]
+I calculated the first 10 coefficients for this solution
+\[ \hspace{-2em}\everymath{\displaystyle}\arraycolsep=2.8pt\def\arraystretch{2.5}\begin{array}{lcl}
+\alpha_2 = \frac{b^2}{b^2 - a^2} & & \beta_{2} = \frac{a b}{a^{2} - b^{2}}\\
+\alpha_{3} = \frac{b^{3}}{a \left(a^{2} - 2 b^{2}\right)}& & \beta_{3} = \frac{b \left(a^{2} - b^{2}\right)}{a \left(a^{2} - 2 b^{2}\right)}\\
+\alpha_{4} = - \frac{b^{4}}{a^{4} - 3 a^{2} b^{2} + b^{4}}& & \beta_{4} = \frac{a b \left(a^{2} - 2 b^{2}\right)}{a^{4} - 3 a^{2} b^{2} + b^{4}}\\
+\alpha_{5} = \frac{b^{5}}{a \left(a^{4} - 4 a^{2} b^{2} + 3 b^{4}\right)}& & \beta_{5} = \frac{b \left(a^{4} - 3 a^{2} b^{2} + b^{4}\right)}{a \left(a^{4} - 4 a^{2} b^{2} + 3 b^{4}\right)}\\
+\alpha_{6} = - \frac{b^{6}}{a^{6} - 5 a^{4} b^{2} + 6 a^{2} b^{4} - b^{6}}& & \beta_{6} = \frac{a b \left(a^{4} - 4 a^{2} b^{2} + 3 b^{4}\right)}{a^{6} - 5 a^{4} b^{2} + 6 a^{2} b^{4} - b^{6}}\\
+\alpha_{7} = \frac{b^{7}}{a \left(a^{6} - 6 a^{4} b^{2} + 10 a^{2} b^{4} - 4 b^{6}\right)}& & \beta_{7} = \frac{b \left(a^{6} - 5 a^{4} b^{2} + 6 a^{2} b^{4} - b^{6}\right)}{a \left(a^{6} - 6 a^{4} b^{2} + 10 a^{2} b^{4} - 4 b^{6}\right)}\\
+\alpha_{8} = - \frac{b^{8}}{a^{8} - 7 a^{6} b^{2} + 15 a^{4} b^{4} - 10 a^{2} b^{6} + b^{8}}& & \beta_{8} = \frac{a b \left(a^{6} - 6 a^{4} b^{2} + 10 a^{2} b^{4} - 4 b^{6}\right)}{a^{8} - 7 a^{6} b^{2} + 15 a^{4} b^{4} - 10 a^{2} b^{6} + b^{8}}\\
+\alpha_{9} = \frac{b^{9}}{a \left(a^{8} - 8 a^{6} b^{2} + 21 a^{4} b^{4} - 20 a^{2} b^{6} + 5 b^{8}\right)}& & \beta_{9} = \frac{b \left(a^{8} - 7 a^{6} b^{2} + 15 a^{4} b^{4} - 10 a^{2} b^{6} + b^{8}\right)}{a \left(a^{8} - 8 a^{6} b^{2} + 21 a^{4} b^{4} - 20 a^{2} b^{6} + 5 b^{8}\right)}\\
+\alpha_{10} = - \frac{b^{10}}{a^{10} - 9 a^{8} b^{2} + 28 a^{6} b^{4} - 35 a^{4} b^{6} + 15 a^{2} b^{8} - b^{10}}& & \beta_{10} = \frac{a b \left(a^{8} - 8 a^{6} b^{2} + 21 a^{4} b^{4} - 20 a^{2} b^{6} + 5 b^{8}\right)}{a^{10} - 9 a^{8} b^{2} + 28 a^{6} b^{4} - 35 a^{4} b^{6} + 15 a^{2} b^{8} - b^{10}}
+\end{array} \]
+
+After substituting back again to $a = 1+\theta^2$ and $b = -\theta$ we obtain
+
+\[ \everymath{\displaystyle}\arraycolsep=2.8pt\def\arraystretch{2.5}\begin{array}{lcl}
+    \alpha_{2} = - \frac{\theta^{2}}{\theta^{4} + \theta^{2} + 1}& & \beta_{2} = \frac{- \theta^{3} - \theta}{\theta^{4} + \theta^{2} + 1}\\
+    \alpha_{3} = - \frac{\theta^{3}}{\left(\theta^{2} + 1\right) \left(\theta^{4} + 1\right)}& & \beta_{3} = - \frac{\theta \left(\theta^{4} + \theta^{2} + 1\right)}{\left(\theta^{2} + 1\right) \left(\theta^{4} + 1\right)}\\
+    \alpha_{4} = - \frac{\theta^{4}}{\theta^{8} + \theta^{6} + \theta^{4} + \theta^{2} + 1}& & \beta_{4} = \frac{- \theta^{7} - \theta^{5} - \theta^{3} - \theta}{\theta^{8} + \theta^{6} + \theta^{4} + \theta^{2} + 1}\\
+    \alpha_{5} = - \frac{\theta^{5}}{\theta^{10} + \theta^{8} + \theta^{6} + \theta^{4} + \theta^{2} + 1}& & \beta_{5} = \frac{- \theta^{9} - \theta^{7} - \theta^{5} - \theta^{3} - \theta}{\theta^{10} + \theta^{8} + \theta^{6} + \theta^{4} + \theta^{2} + 1}\\
+    \alpha_{6} = - \frac{\theta^{6}}{\theta^{12} + \theta^{10} + \theta^{8} + \theta^{6} + \theta^{4} + \theta^{2} + 1}& & \beta_{6} = \frac{- \theta^{11} - \theta^{9} - \theta^{7} - \theta^{5} - \theta^{3} - \theta}{\theta^{12} + \theta^{10} + \theta^{8} + \theta^{6} + \theta^{4} + \theta^{2} + 1}\\
+    \alpha_{7} = - \frac{\theta^{7}}{\theta^{14} + \theta^{12} + \theta^{10} + \theta^{8} + \theta^{6} + \theta^{4} + \theta^{2} + 1}& & \beta_{7} = \frac{- \theta^{13} - \theta^{11} - \theta^{9} - \theta^{7} - \theta^{5} - \theta^{3} - \theta}{\theta^{14} + \theta^{12} + \theta^{10} + \theta^{8} + \theta^{6} + \theta^{4} + \theta^{2} + 1}\\
+\end{array} \]
+\newpage
+Finally, I believe that the closed form formula for the autocorrelation function of $\{X_t\}$ is the following
+\[ \alpha(n) = \frac{-\theta^n}{\sum_{i = 0}^n \theta^{2i}} \]
