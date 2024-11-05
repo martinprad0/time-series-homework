@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}
+    \PYG{n}{O}\PYG{p}{,} \PYG{n}{R} \PYG{o}{=} \PYG{n}{innovations\PYGZus{}algorithm}\PYG{p}{(}\PYG{n}{phi}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{,}\PYG{n}{sigma}\PYG{p}{,}\PYG{n}{N}\PYG{o}{=}\PYG{n}{N}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{)}
+    \PYG{n}{v} \PYG{o}{=} \PYG{n}{sigma}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{R}
+    \PYG{n}{mean\PYGZus{}square\PYGZus{}error} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{h}\PYG{p}{:} \PYG{n}{sigma}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{chi}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)} \PYG{o}{*} \PYG{n}{theta\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{n}{r}\PYG{p}{)} \PYG{k}{for} \PYG{n}{r} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)])}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{h}\PYG{p}{)])}
+
+    \PYG{n}{mean\PYGZus{}square\PYGZus{}error}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{),} \PYG{n}{mean\PYGZus{}square\PYGZus{}error}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{),} \PYG{n}{mean\PYGZus{}square\PYGZus{}error}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}
+\end{Verbatim}

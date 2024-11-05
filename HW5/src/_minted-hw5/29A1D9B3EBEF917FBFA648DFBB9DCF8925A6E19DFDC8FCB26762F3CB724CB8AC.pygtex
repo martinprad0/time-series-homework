@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{prediction}\PYG{p}{(}\PYG{n}{phi}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{,}\PYG{n}{sigma}\PYG{p}{,}\PYG{n}{X}\PYG{p}{)}
+\end{Verbatim}

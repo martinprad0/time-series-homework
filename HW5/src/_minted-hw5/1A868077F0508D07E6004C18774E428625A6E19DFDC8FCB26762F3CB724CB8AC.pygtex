@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k+kn}{import} \PYG{n+nn}{sympy} \PYG{k}{as} \PYG{n+nn}{sp}
+    \PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+    \PYG{k+kn}{from} \PYG{n+nn}{IPython.display} \PYG{k+kn}{import} \PYG{n}{display}\PYG{p}{,} \PYG{n}{Math}
+    \PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+    \PYG{n}{z} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{Symbol}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}z\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{complex} \PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{)}
+    \PYG{n}{n}\PYG{p}{,} \PYG{n}{k}\PYG{p}{,} \PYG{n}{j} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{symbols}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}n k j\PYGZdq{}}\PYG{p}{,} \PYG{n}{integer} \PYG{o}{=} \PYG{k+kc}{True}\PYG{p}{)}
+    \PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{20}
+\end{Verbatim}

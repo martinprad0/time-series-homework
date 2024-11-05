@@ -1,0 +1,54 @@
+% chktex-file 3 chktex-file 12 chktex-file 18 chktex-file 36 chktex-file 40 chktex-file 44
+\newpage
+\section*{Exercise 7.3.}
+
+% 5.8 (a) (b) (leer también sección 5.4), 5.11, 7.1, 7.3 y 7.4.
+
+Show that for any series $\{x_{1}, \dots, x_{n} \}$, the sample autocovariances satisfy $\sum_{| h | < n} \hat{\gamma} ( h )=0.$ 
+
+\subsection*{Solution}
+
+Let $\ol{x}_n = n^{-1} \sum_{t = 1}^{n} x_t$ and let $y_t := x_t-\ol{x}_n$ with $ \sum_{t = 1}^n y_t = 0$. Then, 
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sum_{h = 1}^{n-1} \hat{\gamma} ( -h ) = \sum_{h = 1}^{n-1} \hat{\gamma} ( h ) 
+    & = & \sum_{h = 0}^{n-1} \sum_{t = 1}^{n-h} (x_t-\ol{x}_n)(x_{t+h}-\ol{x}_n)\\
+    & = & \sum_{h = 0}^{n-1}\sum_{t = 1}^{n-h} y_t\, y_{t+h}.
+\end{array} \]
+\[\everymath{\displaystyle} 
+\begin{array}{|rcccccccccc|c|}
+    \hline
+    =& & y_1\, y_2 & + & y_2\, y_3 & + & \cdots & + & y_{n-2}\, y_{n-1} & + & y_{n-1}\, y_n &  (h = 1)\\
+    &+ & y_1\, y_3 & + & y_2\, y_4 & + & \cdots & + & y_{n-2}\, y_n & & &  (h = 2) \\
+    &+ & \vdots & + & \vdots & + & \ddots & + & \vdots &&& \hfill \vdots \hfill \hfill \\
+    &+ & y_1\, y_{n-1} & + & y_2\, y_n &&&&&&& (h = n-2)\\
+    &+ & y_1\, y_n &&&&&&&&& (h = n-1)\\\hline
+    = & & y_1 \sum_{t = 2}^{n} y_{t} & + & y_2 \sum_{t = 3}^{n} y_{t} & + & \cdots & + &  y_{n-2} \sum_{t = n-1}^{n} y_{t} & + & y_{n-1} \sum_{t = n}^{n}  y_{t} &\\
+    \hline
+\end{array} \]
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{lcl}
+    = \sum_{k = 1}^{n} y_k \sum_{t = k+1}^{n} y_t\\
+    = \sum_{k = 1}^{n} y_k \left(\cancelto{0}{\sum_{t = 1}^{n} y_t} - \sum_{t = 1}^{k} y_t  \right)\\
+    = - \sum_{k = 1}^{n} \sum_{t = 1}^{k} y_k\, y_t
+\end{array} \]
+\[\everymath{\displaystyle} \hspace{-3em}
+\begin{array}{|rccccccccc|c|}
+    \hline
+    = & & & & & & & & - & y_1\, y_1 &  (k = 1)\\
+     & & & & & & - & y_2\, y_1 & - & y_{2}\, y_2 &  (k = 2) \\
+     & & & & - & \iddots & - & \vdots & - & \vdots & \hfill \vdots \hfill \hfill \\
+     & & - & y_{n-1}\, y_1 & - & \cdots & - & y_{n-1}\, y_{n-2} & - & y_{n-1}\, y_{n-1} & (k = n-1)\\
+     & - \; y_{n}\, y_1 & - & y_{n}\, y_2 & - & \cdots & - & y_{n}\, y_{n-1} & - & y_{n}\, y_{n} & (k = n)\\[0.5em]
+     \hline &&&&&&&&&&\\
+    = & - \sum_{t = 1}^{n-(n-1)} y_{t+n-1}\, y_{t} & - & \sum_{t = 1}^{n-(n-2)} y_{t+n-2}\, y_{t} & - & \cdots & - & \sum_{t = 1}^{n-(1)} y_{t+1} y_{t} & - & \sum_{t = 1}^{n-(0)} y_{t+0} y_{t} &\\[2em]
+    \hline
+     = & - \hat{\gamma}(n-1) & - & \hat{\gamma}(n-2) & - & \cdots & - & \hat{\gamma}(1) & - & \hat{\gamma}(0). &\\
+     \hline
+\end{array} \]
+Therefore,
+\[ \sum_{h = -n+1}^{-1} \hat{\gamma} (h) = - \sum_{h = 0}^{n-1}\hat{\gamma}(h) \]
+Finally,
+\[ \sum_{|h|<n} \hat{\gamma}(h) = \sum_{h = 0}^{n-1} \hat{\gamma}(h)+  \sum_{h = -n+1}^{-1} \hat{\gamma} (h) = \sum_{h = 0}^{n-1} \hat{\gamma}(h) - \sum_{h = 0}^{n-1} \hat{\gamma}(h) = 0. \]

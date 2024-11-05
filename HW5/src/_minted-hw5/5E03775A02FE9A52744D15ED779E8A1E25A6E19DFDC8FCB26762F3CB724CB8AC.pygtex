@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{h\PYGZus{}step\PYGZus{}prediction}\PYG{p}{(}\PYG{n}{phi}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{,}\PYG{n}{sigma}\PYG{p}{,}\PYG{n}{X}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)[}\PYG{l+m+mi}{11}\PYG{p}{:]}
+\end{Verbatim}

@@ -1,0 +1,80 @@
+% chktex-file 3 chktex-file 12 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 7.4.}
+
+% 5.8 (a) (b) (leer también sección 5.4), 5.11, 7.1, 7.3 y 7.4.
+
+Use formula (7.2.5) to compute the asymptotic covariance matrix of $\hat{\rho} ( 1 ), \ldots, \hat{\rho} ( h )$ for an \textbf{MA}(1) process. For which values of $j$ and $k$ in $\{1, 2, \ldots\}$ are $\hat{\rho} ( j )$ and $\hat{\rho} ( k )$ asymptotically independent?
+
+\subsection*{Solution}
+
+If $\{X_t\}$ is a \textbf{MA}(1) process, then there exists a white noise process $\{Z_t\} \sim \text{WN}(0,\sigma^2)$ and $\theta \neq 0$ such that
+\[ X_t = Z_t + \theta Z_{t-1}.\]
+
+Also, note that the autocovariance function satisfies $\gamma(1) \neq 0$ and $\gamma(h) = 0$ for $|h| > 1$ and $\E X_t = 0$ for every $t = 0,1,\ldots$. Then, as previous calculations showed,
+\[ \gamma(0) = \sigma^2 (1+\theta^2),\hspace{2em} \gamma(1) = \gamma(-1) = \sigma^2 \theta\]
+\[ \implies \rho(0) = 1,\hspace{3em} \rho(1) = \rho(-1) = \frac{\theta}{1+\theta^2} \]
+So, by following equation $(7.2.5)$
+
+\[ w_{i j}=\sum_{k=1}^{\infty}\,\left\{\rho(k+i)+\rho(k-i)-2\rho(i)\rho(k)\right\} \times \left\{ \rho(k+j)+\rho(k-j)-2\rho(j)\rho(k) \right\} \]
+If $|k-i| > 1$, $|k+i| > 1$ and either $|k| > 1$ or $|i| > 1$ that implies
+\[ \rho(k+i)+\rho(k-i)-2\rho(i)\rho(k) = 0. \]
+Therefore, 
+
+\textbf{Claim 1:} The matrix $W$ is a 5 band matrix, that is if $|i-j| > 2$, then $w_{ij} = 0$.
+
+\textit{Proof:} If $|i - j| > 2$, then $j = i + a$ with $|a| > 2$. We then have 2 cases for $k$:
+
+\begin{itemize}
+    \item If $k$ that satisfies $|k-i| \leq 1$, by the inverse triangle inequality,
+    \[ |k-j| = |k-i-a| \geq |a| - |k-i| > 2-1 = 1, \]
+    and thus, $\rho(k-j) = 0$. Also
+    \[ |k+j| \geq |k-j|-|j-j| > 1-0 = 1, \]
+    and thus, $\rho(k+j) = 0$. Finally, if $|k| \leq 1$, then $k = 1$ because the summation starts at 1. Then, $i$ is either 0 or 2. In both cases, since $|i-j| > 2$ and $j\geq 0$, it must be the case that $|j| > 1$. If $|j|\leq 1$, then $|i| > 2$ so
+    \[ |k| \geq |i|-|k-i| > 2-1 = 1, \]
+    so either $|j| > 1$ or $|k| > 1$. Therefore, with these 3 inequalities, we conclude
+    \[  \rho(k+j)+\rho(k-j)-2\rho(j)\rho(k) = 0. \]
+    \item If $k$ that satisfies $|k-j| \leq 1$, we use the same argument to conclude
+    \[ \rho(k+i)+\rho(k-i)-2\rho(i)\rho(k) = 0. \]
+\end{itemize}
+
+In the summation any of these 2 cases must happen, so if $|i-j| > 2$, then
+\[ \sum_{k = 1}^{\infty}(\rho(k+i)+\rho(k-i)-2\rho(i)\rho(k)) \times (\rho(k+j)+\rho(k-j)-2\rho(j)\rho(k)) = 0. \]
+
+The number of calculations in this matrix can also be reduced by the following claim.
+
+\textbf{Claim 2:} if $|i+j| > 5$, then $w_{i,j} = w_{i+h,j+h}$ for every $h = 0,1,\ldots $.
+
+\textit{Proof:} In the previous claim we showed that the only way to find non-zero entries is for $|i-j| \leq 2$. Therefore, in that case,
+\[ 2|i| = |i+j+i-j| \geq |i+j| - |i-j| > 3  \]
+\[ \implies i \geq 2 \]
+The same argument applies to conclude that $j \geq 2$. Then, since $k \geq 1$, it follows that $k+i \geq 2$ and $k+j = 2$. Both inequalities imply that 
+\[ \rho(k+i) = \rho(k+j) = \rho(i) = \rho(j) = 0. \]
+Therefore, since $k-h-i \leq 2$ ($\implies \rho(k-h-i) = 0$) for every $k < h$, it follows that
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    w_{ij} & = & \sum_{k = 1}^{\infty} \rho(k-i) \rho(k-j)\\
+    & = & \sum_{k = h}^{\infty} \rho(k-h-i) \rho(k-h-j)\\
+    & = & \sum_{k = 1}^{\infty} \rho(k-h-i) \rho(k-h-j) = w_{i+h,j+h}.
+\end{array}. \]
+
+\textbf{Claim 3:} $w_{ij} = w_{j,i}$, which is elemental.
+
+Finally, we calculate the first $6\times 6$ entries of the matrix and the rest follows from the previous 3 claims.
+
+\[ \left[\begin{matrix}\frac{16 \theta^{2}}{\left(\theta^{2} + 1\right)^{2}} & \frac{8 \theta^{3}}{\left(\theta^{2} + 1\right)^{3}} + \frac{4 \theta}{\theta^{2} + 1} & \frac{4 \theta^{2}}{\left(\theta^{2} + 1\right)^{2}} & 0 & 0 & 0\\\frac{8 \theta^{3}}{\left(\theta^{2} + 1\right)^{3}} + \frac{4 \theta}{\theta^{2} + 1} & \frac{\theta^{2} \left(\theta^{2} + 1\right)^{2} + \left(2 \theta^{2} + \left(\theta^{2} + 1\right)^{2}\right)^{2}}{\left(\theta^{2} + 1\right)^{4}} & \frac{2 \theta \left(\theta^{2} + \left(\theta^{2} + 1\right)^{2}\right)}{\left(\theta^{2} + 1\right)^{3}} & \frac{\theta^{2}}{\left(\theta^{2} + 1\right)^{2}} & 0 & 0\\\frac{4 \theta^{2}}{\left(\theta^{2} + 1\right)^{2}} & \frac{2 \theta \left(\theta^{2} + \left(\theta^{2} + 1\right)^{2}\right)}{\left(\theta^{2} + 1\right)^{3}} & \frac{2 \theta^{2}}{\left(\theta^{2} + 1\right)^{2}} + 1 & \frac{2 \theta}{\theta^{2} + 1} & \frac{\theta^{2}}{\left(\theta^{2} + 1\right)^{2}} & 0\\0 & \frac{\theta^{2}}{\left(\theta^{2} + 1\right)^{2}} & \frac{2 \theta}{\theta^{2} + 1} & \frac{2 \theta^{2}}{\left(\theta^{2} + 1\right)^{2}} + 1 & \frac{2 \theta}{\theta^{2} + 1} & \frac{\theta^{2}}{\left(\theta^{2} + 1\right)^{2}}\\0 & 0 & \frac{\theta^{2}}{\left(\theta^{2} + 1\right)^{2}} & \frac{2 \theta}{\theta^{2} + 1} & \frac{2 \theta^{2}}{\left(\theta^{2} + 1\right)^{2}} + 1 & \frac{2 \theta}{\theta^{2} + 1}\\0 & 0 & 0 & \frac{\theta^{2}}{\left(\theta^{2} + 1\right)^{2}} & \frac{2 \theta}{\theta^{2} + 1} & \frac{2 \theta^{2}}{\left(\theta^{2} + 1\right)^{2}} + 1\end{matrix}\right]\]
+
+Finally, note that from the matrix is clear that $\hat{\rho}(i)$ is asymptotically independent from $\hat{\rho}(j)$ if $|i-j| > 2$. The calculations were a bit long, so I made them symbolically using the following code
+
+\begin{minted}{python}
+    import sympy as sp
+    from IPython.display import display, Math
+
+    theta = sp.Symbol("theta", complex = True)
+    m = sp.Symbol("m", integer = True)
+
+    rho = lambda m: sp.Piecewise((1, sp.Eq(m,0)), (theta/(1+theta**2), sp.Eq(m,1) | sp.Eq(m,-1)),(0,True))
+    w = lambda i,j: sp.Sum( ( rho(k+i) + rho(k-i) + 2* rho(i)*rho(k) ) * ( rho(k+j) + rho(k-j) + 2* rho(j)*rho(k) ) , (k,1,40) )
+    W = sp.Matrix([[w(i,j).doit() for i in range(10)] for j in range(10)])
+    display(sp.simplify(W)[:6,:6])
+\end{minted}

@@ -1,0 +1,324 @@
+% chktex-file 3 chktex-file 12 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 5.8.}
+
+The values $\mathbf{. 6 4 4,} \,-\mathbf{. 4 4 2,} \,-\mathbf{. 9 1 9,} \,-\mathbf{1. 5 7 3,} \, \mathbf{. 8 5 2,} \,-\mathbf{. 9 0 7,} \, \mathbf{. 6 8 6,} \,-\mathbf{. 7 5 3,} \,-\mathbf{. 9 5 4,}\, \mathbf{. 5 7 6}$, are simulated values of $X_{1}, \ldots, X_{1 0}$ where $\{X_{t} \}$ is the $\mathrm{A R \, M A} ( 2, \, 1 )$ process,
+\[ X_{t}-. 1 X_{t-1}-. 1 2 X_{t-2}=Z_{t}-. 7 Z_{t-1}, \hspace{2em} \{Z_{t} \} \sim \mathrm{W N} ( 0, 1 ). \]
+(a) Compute the forecasts $P_{1 0} \, X_{1 \, 1}, \, P_{1 \, 0} \, X_{1 \, 2}$ and $P_{1 0} \, X_{1 3}$ and the corresponding mean squared errors.
+
+(b) Assuming that $Z_{t} \sim N ( 0, 1 ),$ construct 95 \% prediction bounds for $X_{1 1}, \, X_{1 2}$ and $X_{1 3}$. $\tilde{X}_{1 \, 1}^{T}, \, \tilde{X}_{1 2}^{T}$ and $\tilde{X}_{1 3}^{T}$ and compare 
+
+(c) Using the method of Problem 5.1S, compute
+these values with those obtained in (a).
+[The simulated values of $X_{1 1}, X_{1 2}$ and $X_{1 3}$, were in fact .074, 1.097 and -.187 respectively.]
+
+
+\subsection*{Preliminaries}
+
+For every causal \textbf{ARMA}($p,q$) process with $\phi(B) X_t = \theta(B)Z_t$ we have that the autocovariance function is
+\[ \gamma(k) = \sigma^2 \sum_{n = 0}^{\infty} \psi_n \psi_{n+k}, \]
+where $\psi_k$ is the $k$-th coefficient of the Taylor series expansion of $\theta(z)/phi(z)$. Since $\theta$ and $\phi$ are polynomials with no common roots on $|z| < 1$, we can decompose $\psi$ in partial fractions
+\[ \psi(z) = \frac{a_1}{(1-r_1 z)^{k_1}} + \cdots + \frac{a_m}{(1-r_m z)^{k_m}} \]
+with $|r_j| < 1$, and thus, there's a Taylor series expansion for each partial fraction with radius of convergence greater or equal than 1:
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \frac{a}{(1-rz)^k} & = & \frac{a}{(k-1)! r^{k-1}} \frac{d^{k-1}}{dz^{k-1}} \left( \frac{1}{1-rz} \right)\\
+    (|z| < 1) & = & \frac{a}{(k-1)! r^{k-1}} \sum_{n = k-1}^{\infty} \frac{n!}{(n-k+1)!} r^n z^{n-k+1}\\
+    & = & \sum_{n = k-1}^{\infty} \binom{n}{k-1} a(rz)^{n-k+1}\\
+    & = & \sum_{n = 0}^{\infty}  \binom{n+k-1}{k-1} a r^n z^n.
+\end{array} \]
+Hence,
+\[ \psi_n = \sum_{j = 1}^m \binom{n+k_j-1}{k_j-1} a_j r_j^n. \]
+
+For our case, the partial fraction expansion of $\psi$ is the following
+\[ \psi(z) = \frac{1-.7z}{1-.1z-.12z^2} = \frac{-3/7}{1-2z/5} + \frac{10/7}{1+3z/10}. \]
+Therefore, 
+\[ \psi_n = -\frac{3}{7} \left( \frac{2}{5} \right)^{n} + \frac{10}{7}\left( \frac{-3}{10} \right)^n = \frac{-3\cdot 4^n + 10\cdot (-3)^n}{7\cdot 10^n}, \]
+so it follows that
+\[ \gamma(k) = \sigma^2 \sum_{n = 0}^{\infty} \psi_n \psi_{n+|k|}\]
+\[ \hspace{-3em} \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rccccccccc}
+    \gamma(k) & = & \sum_{n = 0}^{\infty} \frac{-3\cdot 4^n + 10\cdot (-3)^n}{7\cdot 10^n}
+     & \cdot & 
+     \frac{-3\cdot 4^{n+k} + 10\cdot (-3)^{n+k}}{7\cdot 10^{n+k}}\\
+    & = & \sum_{n = 0}^{\infty} - \frac{30 \left(- \frac{3}{10}\right)^{k} \left(- \frac{3}{25}\right)^{n}}{49} & + & \frac{100 \left(- \frac{3}{10}\right)^{k} \left(\frac{100}{9}\right)^{- n}}{49} & - & \frac{30 \left(- \frac{3}{25}\right)^{n} \left(\frac{5}{2}\right)^{- k}}{49} & + & \frac{9 \left(\frac{25}{4}\right)^{- n} \left(\frac{5}{2}\right)^{- k}}{49}\\
+    & = & \sum_{n=0}^{\infty} - \frac{30 \left(- \frac{3}{10}\right)^{k} \left(- \frac{3}{25}\right)^{n}}{49} & + & \sum_{n=0}^{\infty} \frac{100 \left(- \frac{3}{10}\right)^{k} \left(\frac{100}{9}\right)^{- n}}{49} & + & \sum_{n=0}^{\infty} - \frac{30 \left(- \frac{3}{25}\right)^{n} \left(\frac{5}{2}\right)^{- k}}{49} & + & \sum_{n=0}^{\infty} \frac{9 \left(\frac{25}{4}\right)^{- n} \left(\frac{5}{2}\right)^{- k}}{49}\\
+    & = & - \frac{375 \left(- \frac{3}{10}\right)^{k}}{686} & + & \frac{10000 \left(- \frac{3}{10}\right)^{k}}{4459}
+    & + & - \frac{375 \cdot 2^{k} 5^{- k}}{686}
+    & + & \frac{75 \cdot 2^{k} 5^{- k}}{343}
+\end{array} \]
+\[ = \frac{25 \cdot 50^{- k} \left(605 \left(-15\right)^{k} - 117 \cdot 20^{k}\right)}{8918} \]
+
+The first 10 values of this analytic method are:
+\begin{minted}{python}
+    [1.368019735366674, -0.6399977573446961, 0.10016259250953127, -0.0667834716304104, 0.005341163938102713, -0.007479900201838976,-0.0001070503476115721, -0.0009082930589818344, -0.00010367534761157211, -0.00011936270183897734]
+\end{minted}
+
+Similarly, following (3.3.4) we can also obtain $\psi_n$ from the following linear equation
+\[ \psi_{j}-\sum_{0<k\leq p}\phi_{k}\psi_{j-k}=0,\hspace{2em}  j\geq\max(p,q+1). \]
+Then, we obtain the autocovariance function solving the linear system in (3.3.8) and (3.3.9)
+\[ \gamma(-k) = \gamma(k) \]
+\[ \gamma( k )-\phi_{1} \gamma( k-1 )-\cdots-\phi_{p} \gamma( k-p )=\sigma^{2} \sum_{k \leq j \leq q} \theta_{j} \psi_{j-k}, \hspace{2em} 0 \leq k < \max ( p, q+1 ), \]
+\[ \gamma( k )-\phi_{1} \gamma( k-1 )-\cdots-\phi_{p} \gamma( k-p )=0, \hspace{2em}  k \geq\operatorname* {m a x} ( p, q+1 ). \]
+
+This can be computed as follows:
+
+In the first place, we import the packages we're going to use for the symbolic calculations
+
+\begin{minted}{python}
+    import sympy as sp
+    import numpy as np
+    from IPython.display import display, Math
+    import matplotlib.pyplot as plt
+
+    z = sp.Symbol("z", complex = True)
+    n, k, j = sp.symbols("n k j", integer = True)
+    N = 20
+\end{minted}
+
+Also, we define $\phi$, $\theta$,$\sigma$ and $X_t$:
+
+\begin{minted}{python}
+    phi = 1 - 0.1 * z - 0.12 * z**2
+    theta = 1 - 7/10 * z
+    sigma = 1 # standard deviation
+    X = [0, .644, -.442, -.919, -1.573, - 0.852, -.907, .686, -.753, -.954, .576] # X_0 = 0
+\end{minted}
+
+Now, we define $p,q$ and the coefficients for $\phi$ and $\theta$
+
+\begin{minted}{python}
+    phi = sp.Poly(phi)
+    theta = sp.Poly(theta)
+    p = phi.degree()
+    q = theta.degree()
+    m = max(p,q)
+    center = max(p,q+1)
+
+
+    phi_coeff = lambda k: -phi.coeffs()[-1-k] if 0< k <= p else 1 if k == 0 else 0
+    theta_coeff = lambda k: theta.coeffs()[-1-k] if 0< k <= q else 1 if k == 0 else 0
+\end{minted}
+
+Now the method for the autocovariance: 
+
+\begin{minted}{python}
+    def get_autocovariance(phi, theta,N = N): 
+        psi = [theta_coeff(0)]
+        for j in range(1, max(p,q+1)):
+            psi_j = theta_coeff(j) + sum([phi_coeff(k) * psi[j-k] for k in range(1,j+1)])
+            psi.append(psi_j)
+
+        for j in range(max(p,q+1), 2*p+2*q):
+            psi_j = sum([phi_coeff(k) * psi[j-k] for k in range(1,j+1)])
+            psi.append(psi_j)
+
+        gamma_symmetry_matrix = np.zeros((center, 2*center+1))
+        gamma_symmetry_vector = np.zeros((center,))
+        for j in range(1, max(p,q+1) + 1):
+            gamma_symmetry_matrix[j-1,center+j] = 1
+            gamma_symmetry_matrix[j-1,center-j] = -1
+        
+        gamma_boundary_matrix = np.zeros((center+1, 2*center+1))
+        gamma_boundary_vector = np.zeros((center+1,))
+        for k in range(0 , center+1):
+            for j in range(0,p+1):
+                gamma_boundary_matrix[k,center+k-j] = 1 if j == 0 else -phi_coeff(j)
+            gamma_boundary_vector[k] = sum([theta_coeff(j)*psi[j-k] for j in range(k,q+1)])
+
+
+
+        gamma_solution = np.linalg.solve(np.vstack([gamma_symmetry_matrix, gamma_boundary_matrix]),  np.hstack([gamma_symmetry_vector, gamma_boundary_vector]))[center:]
+
+        for k in range(center+1,N):
+            gamma_k = sum([phi_coeff(j) * gamma_solution[k-j] for j in range(1,p+1)])
+            gamma_solution = np.append(gamma_solution, gamma_k)
+        return gamma_solution
+\end{minted}
+
+The first 10 values of the recursive method \mintinline{python}{get_autocovariance(phi,theta)}  are
+\begin{minted}{python}
+    [1.368019735366674, -0.6399977573446961, 0.10016259250953129, -0.0667834716304104, 0.00534116393810271, -0.00747990020183898, -0.000107050347611572, -0.000908293058981834,-0.000103675347611572, -0.000119362701838977]
+\end{minted}
+which luckily coincides with the analytical result so we're going through the right path.
+
+\subsection*{Item (a) Innovations Algorithm}
+
+Now that we have the exact autocovariance function of this process, the innovations algoritm can be computed to obtain $\theta_{i,j}$ and $r_k$. 
+
+In the first place, we need to calculate $\kappa$
+\[ \kappa(i,j) = \begin{cases}
+    \sigma^{-1} \gamma(i-j) & 1 \leq i,j \leq m,\\
+    \sigma^{-2}\left[\gamma(i-j)-\sum_{r=1}^{p}\phi_{r}\gamma_{X}(r-|i-j|)\right] & \min(i,j)\leq m<\max(i,j)\leq 2m,\\
+    \sum_{r=0}^{q}\,\theta_{r}\theta_{r+|i-j|}, & \min(i,j) > m,\\
+    0, & \mbox{otherwise}
+\end{cases} \]
+
+Then, using the Innovations Algorithm, we obtain
+\[ \begin{aligned} 
+    v_0 & =\kappa( 1, 1 ), \\ 
+    {\theta_{n, n-k}} & = v_{k}^{-1} \bigg( \kappa( n+1, k+1 )-\sum_{j=0}^{k-1} \theta_{k, k-j} \theta_{n, n-j} v_{j} \bigg), & k = 0,\ldots, n-1, \\
+     {v_{n}} & =\kappa( n+1, n+1 )-\sum_{j=0}^{n-1} \theta_{n, n-j}^{2} v_{j}. \\ \end{aligned}
+\]
+This can be done using the following code,
+\begin{minted}{python}
+    def innovations_algorithm(phi,theta,sigma,N = N):        
+        gamma_solution = get_autocovariance(phi,theta)
+        gamma = lambda h: gamma_solution[abs(h)]
+        def kappa(i,j):
+            if 1 <= min(i, j) and max(i, j) <= m:
+                return sigma**(-2) * gamma(i - j)
+            if min(i, j) <= m < max(i, j) <= 2 * m:
+                return sigma**(-2) * (gamma(i - j) - sum([phi_coeff(r) * gamma(r - abs(i - j)) for r in range(1, p + 1)]))
+            if min(i, j) > m:
+                return sum([theta_coeff(r) * theta_coeff(r + abs(i - j)) for r in range(0, q + 1)])
+            else:
+                return 0
+
+        kappa_matrix = np.array([[kappa(i,j) for i in range(0,N+3)]for j in range(0,N+3)]).astype(float)
+
+        v_0 = kappa_matrix[1,1]
+        v = np.array([v_0])
+        O = np.empty((N+1, N+1))
+        for n in range(1,N+1):
+            for k in range(0,n):
+                O[n,n-k] = v[k]**(-1) * (kappa_matrix[n+1,k+1] - sum([ O[k,k-j]*O[n,n-j]*v[j] for j in range(0,k) ]))
+            v_n = kappa_matrix[n+1,n+1] - sum([ O[n,n-j]**2 * v[j] for j in range(0,n)])
+            v = np.append(v,v_n)
+
+        return O, v/sigma**2
+\end{minted}
+
+This way, we can calculate $\hat{X}_k$ using (5.2.15)
+\[ \hat{X}_{n+1}=\left\{\begin{array}{l l}{{0}}&{{i f\ n=0,}}\\ {{\sum_{j=1}^{n}\,\theta_{n j}(X_{n+1-j}-\hat{X}_{n+1-j})}}&{{i f\ n\geq1,}}\end{array}\right. \]
+
+\begin{minted}{python}
+    def prediction(phi,theta,sigma,X):
+        O, r = innovations_algorithm(phi,theta,sigma,N=len(X))
+        Xhat = np.array([0])
+        for n in range(0, len(X)):
+            if 0 <= n < m:
+                Xhat_n = sum([O[n,j] * ( X[n+1-j] - Xhat[n+1-j] ) for j in range(1, n+1)])
+                Xhat = np.append(Xhat, Xhat_n)
+            elif n >= m:
+                Xhat_n = sum([phi_coeff(i)*X[n+1-i] for i in range(1,p+1)]) + sum([O[n,j] * ( X[n+1-j] - Xhat[n+1-j] ) for j in range(1, q+1)])
+                Xhat = np.append(Xhat, Xhat_n)
+        return Xhat
+\end{minted}
+
+We obtain the following results from the output of \mintinline{python}{prediction(phi,theta,sigma,X)}
+\begin{minted}{python}
+    array([0.0, 0.0, -0.3012811475409836, 0.125258726843133,
+       0.563745296173031, 1.20611643606984, 1.15640073456291, 1.24638808741670, 0.351360452344656, 0.779424709348685, 1.02713941765458, 0.258854112159841], dtype=object)
+\end{minted}
+That is
+\[ \hat{X}_0 = \hat{X}_1 = 0,\;\hat{X}_2 = -0.3012,\; \ldots,\;\hat{X}_{10} = 1.0271,\; \hat{X}_{11} = 0.2588.  \]
+
+Making a slight modification to the formula we can obtain the $h$-step prediction given by (5.3.15)
+\[ P_{n}X_{n+h}=\left\{\begin{array}{l l}{{\displaystyle\sum_{j=h}^{n+h-1}\theta_{n+h-1,j}(X_{n+h-j}-\hat{X}_{n+h-j}),\qquad1\leq h\leq m-n,\qquad}}\\ {{\displaystyle\sum_{n}^{p}\phi_{i}P_{n}X_{n+h-i}+\sum_{h\leq j\leq q}\theta_{n+h-1,j}(X_{n+h-j}-\hat{X}_{n+h-j}),\qquad h>m-n.}}\end{array}\right.
+\]
+
+\begin{minted}{python}
+    def h_step_prediction(phi,theta,sigma,X,h):
+        O, r = innovations_algorithm(phi,theta,sigma,N=len(X)+h)
+        Xhat = prediction(phi,theta,sigma,X)
+
+        P_nX = np.append(X, Xhat[-1])
+        for k in range(n+2, n+h+1):
+            if k <= m:
+                P_nX_k = sum([phi_coeff(i)*P_nX[k-i] for i in range(1,p+1)]) + sum([O[k-1,j] * ( X[k-j] - Xhat[k-n-j] ) for j in range(k-n, q+1)])
+                P_nX = np.append(P_nX, P_nX_k)
+            else:
+                P_nX_k = sum([phi_coeff(i)*P_nX[k-i] for i in range(1,p+1)]) + sum([O[k-1,j] * ( X[k-j] - Xhat[k-j] ) for j in range(k-n, q+1)])
+                P_nX = np.append(P_nX, P_nX_k)
+        return P_nX
+\end{minted}
+
+We obtain the following results from the output of \mintinline{python}{h_step_prediction(phi,theta,sigma,X,3)[11:]}
+\begin{minted}{python}
+    array([0.258854112159841, 0.0950054112159841, 0.0405630345807793],
+    dtype=object)
+\end{minted}
+That is,
+\[ P_{10}X_{11} = \hat{X}_{11} =0.2588,\; P_{10}X_{12} = 0.0950,\; P_{10}X_{13} = 0.040 \]
+
+Finally, for the mean squared error we calculate the power series expansion of $\chi(z)= \phi(z)^{-1}$ using a similar argument as the calculation of $\psi$ to obtain
+\[ \chi(z) = - \frac{4}{7 \left(\frac{2 z}{5} - 1\right)} + \frac{3}{7 \left(\frac{3 z}{10} + 1\right)}
+\]
+\[\implies  \chi_n = \frac{50^{- n} \left(3 \left(-15\right)^{n} + 4 \cdot 20^{n}\right)}{7}. \]
+In fact, every symbolic calculation of power series expansions was done with the following code:
+\begin{minted}{python}
+    partial_fraction_expansion = sp.apart(1/phi, full=True).nsimplify(tolerance=1e-10)
+    display(Math("\\chi(z) = \\phi(z)^{-1} =" + sp.latex(partial_fraction_expansion)))
+    chi_n = 0
+    for partial_fraction in partial_fraction_expansion.args:
+        poly = sp.Poly(partial_fraction**(-1), z)
+        coeffs = (poly).coeffs()
+        degree = sp.degree(poly, z)
+        a = coeffs[-1]**(-1)
+        r = sp.root((a*(-1)**degree) * coeffs[0],degree)
+        chi_n += a*sp.binomial(n,degree-1)*r**n
+
+    def chi(i):
+        return (chi_n).subs({n:i})
+    display(Math("\\chi_n =" + sp.latex(chi(n).simplify())))
+\end{minted}
+
+However, the formula (5.3.21) yields the same results and is more efficient: $\chi_0 = 1$, then
+\[ \chi_{j}=\sum^{\mathrm{min}(p,j)}_{{k=1}}\phi_{k}\chi_{j-k},\qquad j=1,2,\ldots. \]
+\begin{minted}{python}
+    chi_list = [1]
+    for j in range(1,2*N):
+        chi_list.append(sum([phi_coeff(k)*chi_list[j-k] for k in range(1,min(p,j)+1)]))
+
+    chi = lambda k:  chi_list[k]
+\end{minted}
+
+
+Therefore, using the formula (5.3.22), we calculate the mean squared error for our projections:
+\[ \sigma_{n}^{2}(h):=E(X_{n+h}-P_{n}X_{n+h})^{2}=\sum_{j=0}^{h-1}\left(\sum_{r=0}^{j}\chi_{r}\theta_{n+h-r-1,j-r}\right)^{2}v_{n+h-j-1}. \]
+\[ \approx \sigma^2 \sum_{j = 0}^{h-1} \left( \sum_{r = 0}^{j} \chi_r \theta_{j-r} \right)^2 \]
+
+\begin{minted}{python}
+    n = len(X)-1
+    O, R = innovations_algorithm(phi,theta,sigma,N=N+2)
+    v = sigma**2 * R
+    mean_square_error = lambda h: sigma**2 * sum([sum([chi(r) * theta_coeff(j-r) for r in range(0,j+1)])**2 for j in range(0,h)])
+
+    mean_square_error(1), mean_square_error(2), mean_square_error(3) 
+\end{minted}
+To have the following output
+\begin{minted}{python}
+    (1.0, 1.36000000000000, 1.36360000000000)
+\end{minted}
+
+\subsection*{Item (b): Prediction Bounds}
+
+If $Z_t \sim N(0,1)$, then
+\[ \begin{array}{rcl}
+    X_{n+h} & \sim & N(P_{n} X_{n+h}, \sigma_n^2(h))
+\end{array} \]
+
+Thus, $X_{n+h}$ lies with probability $(1-0.05)$ in the interval $[P_n X_{n+h}+\Phi_{0.025}, P_n X_{n+h}+ \Phi_{1-0.025}]$.
+
+\begin{table}[H]\centering
+    \begin{tabular}{l|ll}
+    $h$ & $P_{10} X_{10+h}$ & $\sigma_n^2(h)$ \\ \hline
+    1   & 0.2588            & 1               \\
+    2   & 0.0950            & 1.36            \\
+    3   & 0.04056           & 1.3636         
+    \end{tabular}
+\end{table}
+
+With these values, we obtain
+
+\begin{table}[H]\centering
+    \begin{tabular}{l|ll}
+    $h$ & $P_n X_{n+h}+\Phi_{0.025}$ & $P_n X_{n+h}+\Phi_{0.975}$ \\ \hline
+    1   & -1.11291244            & 1.63062067              \\
+    2   & -1.27690181            & 1.46691264            \\
+    3   & -1.33141311           & 1.41253918         
+    \end{tabular}
+\end{table}
+

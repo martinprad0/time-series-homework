@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}autocovariance}\PYG{p}{(}\PYG{n}{phi}\PYG{p}{,} \PYG{n}{theta}\PYG{p}{,}\PYG{n}{N} \PYG{o}{=} \PYG{n}{N}\PYG{p}{):}
+
+
+        \PYG{n}{psi} \PYG{o}{=} \PYG{p}{[}\PYG{n}{theta\PYGZus{}coeff}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)]}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{n}{q}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)):}
+            \PYG{n}{psi\PYGZus{}j} \PYG{o}{=} \PYG{n}{theta\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)} \PYG{o}{+} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{phi\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)} \PYG{o}{*} \PYG{n}{psi}\PYG{p}{[}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{n}{k}\PYG{p}{]} \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)])}
+            \PYG{n}{psi}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{psi\PYGZus{}j}\PYG{p}{)}
+
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{n}{q}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{q}\PYG{p}{):}
+            \PYG{n}{psi\PYGZus{}j} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{phi\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)} \PYG{o}{*} \PYG{n}{psi}\PYG{p}{[}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{n}{k}\PYG{p}{]} \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)])}
+            \PYG{n}{psi}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{psi\PYGZus{}j}\PYG{p}{)}
+
+        \PYG{n}{gamma\PYGZus{}symmetry\PYGZus{}matrix} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{((}\PYG{n}{center}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{center}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}
+        \PYG{n}{gamma\PYGZus{}symmetry\PYGZus{}vector} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{((}\PYG{n}{center}\PYG{p}{,))}
+        \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{n}{q}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{n}{gamma\PYGZus{}symmetry\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{center}\PYG{o}{+}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}
+            \PYG{n}{gamma\PYGZus{}symmetry\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{center}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}
+
+        \PYG{n}{gamma\PYGZus{}boundary\PYGZus{}matrix} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{((}\PYG{n}{center}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{center}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}
+        \PYG{n}{gamma\PYGZus{}boundary\PYGZus{}vector} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{((}\PYG{n}{center}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,))}
+        \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0} \PYG{p}{,} \PYG{n}{center}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+                \PYG{n}{gamma\PYGZus{}boundary\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{k}\PYG{p}{,}\PYG{n}{center}\PYG{o}{+}\PYG{n}{k}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{k}{if} \PYG{n}{j} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{k}{else} \PYG{o}{\PYGZhy{}}\PYG{n}{phi\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}
+            \PYG{n}{gamma\PYGZus{}boundary\PYGZus{}vector}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{theta\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)}\PYG{o}{*}\PYG{n}{psi}\PYG{p}{[}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{n}{k}\PYG{p}{]} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{k}\PYG{p}{,}\PYG{n}{q}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)])}
+
+
+
+        \PYG{n}{gamma\PYGZus{}solution} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{solve}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{vstack}\PYG{p}{([}\PYG{n}{gamma\PYGZus{}symmetry\PYGZus{}matrix}\PYG{p}{,} \PYG{n}{gamma\PYGZus{}boundary\PYGZus{}matrix}\PYG{p}{]),}  \PYG{n}{np}\PYG{o}{.}\PYG{n}{hstack}\PYG{p}{([}\PYG{n}{gamma\PYGZus{}symmetry\PYGZus{}vector}\PYG{p}{,} \PYG{n}{gamma\PYGZus{}boundary\PYGZus{}vector}\PYG{p}{]))[}\PYG{n}{center}\PYG{p}{:]}
+
+        \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{center}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{N}\PYG{p}{):}
+            \PYG{n}{gamma\PYGZus{}k} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{phi\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{j}\PYG{p}{)} \PYG{o}{*} \PYG{n}{gamma\PYGZus{}solution}\PYG{p}{[}\PYG{n}{k}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{]} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)])}
+            \PYG{n}{gamma\PYGZus{}solution} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{gamma\PYGZus{}solution}\PYG{p}{,} \PYG{n}{gamma\PYGZus{}k}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{gamma\PYGZus{}solution}
+\end{Verbatim}

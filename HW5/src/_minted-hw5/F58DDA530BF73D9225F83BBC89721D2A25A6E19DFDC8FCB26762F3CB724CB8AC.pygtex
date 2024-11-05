@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k}{def} \PYG{n+nf}{innovations\PYGZus{}algorithm}\PYG{p}{(}\PYG{n}{phi}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{,}\PYG{n}{sigma}\PYG{p}{,}\PYG{n}{N} \PYG{o}{=} \PYG{n}{N}\PYG{p}{):}
+        \PYG{n}{gamma\PYGZus{}solution} \PYG{o}{=} \PYG{n}{get\PYGZus{}autocovariance}\PYG{p}{(}\PYG{n}{phi}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{)}
+        \PYG{n}{gamma} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{h}\PYG{p}{:} \PYG{n}{gamma\PYGZus{}solution}\PYG{p}{[}\PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{h}\PYG{p}{)]}
+        \PYG{k}{def} \PYG{n+nf}{kappa}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{):}
+            \PYG{k}{if} \PYG{l+m+mi}{1} \PYG{o}{\PYGZlt{}=} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{)} \PYG{o+ow}{and} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{)} \PYG{o}{\PYGZlt{}=} \PYG{n}{m}\PYG{p}{:}
+                \PYG{k}{return} \PYG{n}{sigma}\PYG{o}{**}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{*} \PYG{n}{gamma}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{)} \PYG{o}{\PYGZlt{}=} \PYG{n}{m} \PYG{o}{\PYGZlt{}} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{)} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{m}\PYG{p}{:}
+                \PYG{k}{return} \PYG{n}{sigma}\PYG{o}{**}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{gamma}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{phi\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)} \PYG{o}{*} \PYG{n}{gamma}\PYG{p}{(}\PYG{n}{r} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{))} \PYG{k}{for} \PYG{n}{r} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{p} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)]))}
+            \PYG{k}{if} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{j}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{m}\PYG{p}{:}
+                \PYG{k}{return} \PYG{n+nb}{sum}\PYG{p}{([}\PYG{n}{theta\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)} \PYG{o}{*} \PYG{n}{theta\PYGZus{}coeff}\PYG{p}{(}\PYG{n}{r} \PYG{o}{+} \PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{i} \PYG{o}{\PYGZhy{}} \PYG{n}{j}\PYG{p}{))} \PYG{k}{for} \PYG{n}{r} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{q} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)])}
+            \PYG{k}{else}\PYG{p}{:}
+                \PYG{k}{return} \PYG{l+m+mi}{0}
+
+        \PYG{n}{kappa\PYGZus{}matrix} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([[}\PYG{n}{kappa}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{N}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{p}{)]}\PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{N}\PYG{o}{+}\PYG{l+m+mi}{3}\PYG{p}{)])}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{)}
+
+        \PYG{n}{v\PYGZus{}0} \PYG{o}{=} \PYG{n}{kappa\PYGZus{}matrix}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}
+        \PYG{n}{v} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{n}{v\PYGZus{}0}\PYG{p}{])}
+        \PYG{n}{O} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{((}\PYG{n}{N}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{N}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}
+        \PYG{k}{for} \PYG{n}{n} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{N}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):}
+            \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{n}\PYG{p}{):}
+                \PYG{n}{O}\PYG{p}{[}\PYG{n}{n}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{k}\PYG{p}{]} \PYG{o}{=} \PYG{n}{v}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{o}{**}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{kappa\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{k}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{sum}\PYG{p}{([} \PYG{n}{O}\PYG{p}{[}\PYG{n}{k}\PYG{p}{,}\PYG{n}{k}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{]}\PYG{o}{*}\PYG{n}{O}\PYG{p}{[}\PYG{n}{n}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{]}\PYG{o}{*}\PYG{n}{v}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)} \PYG{p}{]))}
+            \PYG{n}{v\PYGZus{}n} \PYG{o}{=} \PYG{n}{kappa\PYGZus{}matrix}\PYG{p}{[}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{sum}\PYG{p}{([} \PYG{n}{O}\PYG{p}{[}\PYG{n}{n}\PYG{p}{,}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{n}{j}\PYG{p}{]}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{v}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{n}\PYG{p}{)])}
+            \PYG{n}{v} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{n}{v\PYGZus{}n}\PYG{p}{)}
+
+        \PYG{k}{return} \PYG{n}{O}\PYG{p}{,} \PYG{n}{v}\PYG{o}{/}\PYG{n}{sigma}\PYG{o}{**}\PYG{l+m+mi}{2}
+\end{Verbatim}
