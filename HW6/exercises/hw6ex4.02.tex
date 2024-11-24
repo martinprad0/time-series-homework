@@ -1,0 +1,26 @@
+% chktex-file 3 chktex-file 9 chktex-file 12 chktex-file 17 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 4.2}
+
+Establish whether or not the following function is the autocovariance function 
+of a stationary process:
+\[
+\gamma(h) = 
+\begin{cases} 
+1, & \text{if } h = 0, \\
+-.5, & \text{if } h = \pm 2, \\
+-.25, & \text{if } h = \pm 3, \\
+0, & \text{otherwise}.
+\end{cases}
+\]
+
+\subsection*{Solution}
+
+Let $f(x) = \frac{1}{2\pi} \sum_{n = -\infty}^{\infty} e^{-in x} \gamma(n)$, that is
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{1.5}
+\begin{array}{rcl}
+    2\pi f(x) & = & -0.25 (e^{-3ix} + e^{3ix}) - 0.5(e^{-2ix} + e^{2ix}) + e^{0ix}\\
+    & = & -0.5 \cos(3x) - \cos(2x) + 1
+\end{array}\]
+
+Finally, note that $f(0) =-0.5-1+1 = -0.5$ so according to \textbf{Corollary 4.3.2} the function $\gamma$ doesn't correspond to an autocovariance function. 

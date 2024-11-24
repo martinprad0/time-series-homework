@@ -1,0 +1,52 @@
+% chktex-file 3 chktex-file 9 chktex-file 12 chktex-file 17 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 4.3}
+
+If \(0 < a < \pi\), use equation (4.3.1) to show that
+\[
+\gamma(h) = 
+\begin{cases} 
+h^{-1}\sin(ah), & h = \pm 1, \pm 2, \ldots, \\
+a, & h = 0,
+\end{cases}
+\]
+is the autocovariance function of a stationary process \(\{X_t, t = 0, \pm 1, \ldots\}\). What is the spectral density of \(\{X_t\}\)?
+
+\subsection*{Solution}
+
+\textbf{Note:} For this exercise and exercise 4.9, the function $\ln:\C\backslash (-\infty,0) \to \C$ is the main branch of the complex $\log$ function 
+
+Let $\displaystyle f(x) = \frac{1}{2\pi} \left( a + \sum_{\substack{n \in \Z\\ n \neq 0}}\frac{ e^{-inx} \sin(an)}{n} \right)$ and note that since $n^{-1} \sin(an) = (-n)^1 \sin(-an) $, it follows that,
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    2\pi f(x) =  a + \sum_{n = 1}^{\infty} \frac{\cos(nx)\sin(an)}{n} 
+\end{array}\]
+Then, using the complex identity $\sin(z) = \dfrac{e^{iz}-e^{-iz}}{2i}$ and $\cos(z) = \dfrac{e^{iz}+e^{-iz}}{2}$, we obtain
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \cos(nx)\sin(an) & = & \frac{i}{4}\left( e^{-ina} - e^{ina} \right)\left( e^{-inx} + e^{inx} \right)\\
+    & = & \frac{i}{4} (e^{(-a-x)in}+e^{(-a+x)in}-e^{(a-x)in}-e^{(a+x)in})
+\end{array} \]
+Now, using the identity $\sum_{n = 1}^{\infty} y^n/n = -\ln(1-y)$ for $|y| \leq 1$ and $y \neq -1$, we obtain with the function $y(z) = e^{iz}$ the following result:
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \sum_{n = 1}^{\infty} \frac{\cos(nx)\sin(an)}{n}
+    & = & \frac{i}{4} \sum_{n = 1}^{\infty} n^{-1}
+     (e^{(-a-x)in}+e^{(-a+x)in}-e^{(a-x)in}-e^{(a+x)in})\\
+    & = & \frac{i}{4} \sum_{n = 1}^{\infty} n^{-1} (y(-a-x)^n+y(-a+x)^n-y(a-x)^n-y(a+x)^n)\\
+    & = & \frac{-i}{4} (\ln(1-y(-a-x)) + \ln(1-y(-a+x)) - \ln(1-y(a-x)) - \ln(1-y(a+x)))\\
+    & = & \frac{-i}{4} \ln\left( \frac{(1-e^{(-a-x)i})}{(1-e^{(a+x)i})} \cdot \frac{(1-e^{(-a+x)i})}{(1-e^{(a-x)i})} \right).
+\end{array}\]
+Now, use the identity $(1-z)/(1+z^{-1}) = -z$ with $z = e^{(-a\pm x)i}$ to obtain
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    \cdots & = & \frac{-i}{4} \ln\left( (-e^{(-a-x)i})(-e^{(-a+x)i}) \right)\\
+    & = & \frac{-i}{4} (-a-x-a+x)i = \frac{a}{2} \geq 0.
+\end{array}\]
+\[ \implies f(x) = \frac{1}{2\pi}(a+a/2) = \frac{3a}{4\pi} \geq 0. \]
+
+Using \textbf{Corollary 4.3.2} we can conclude that $\gamma$ is an autocovariance function for a process with spectral density $f(\lambda) = 3a/4\pi$.
+

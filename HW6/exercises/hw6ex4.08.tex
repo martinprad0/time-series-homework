@@ -1,0 +1,34 @@
+% chktex-file 3 chktex-file 9 chktex-file 12 chktex-file 17 chktex-file 18 chktex-file 36 chktex-file 40
+\section*{Exercise 4.8}
+
+Let \(\{X_t\}\) and \(\{Y_t\}\) be stationary zero-mean processes with spectral densities \(f_X\) 
+and \(f_Y\). If \(f_X(\lambda) \leq f_Y(\lambda)\) for all \(\lambda \in [-\pi, \pi]\), show that 
+\begin{itemize}
+    \item[(a)] \(\Gamma_{n,Y} - \Gamma_{n,X}\) is a non-negative definite matrix, where \(\Gamma_{n,Y}\) and 
+    \(\Gamma_{n,X}\) are the covariance matrices of \(\mathbf{Y} = (Y_1, \ldots, Y_n)'\) and 
+    \(\mathbf{X} = (X_1, \ldots, X_n)'\), respectively, and
+    \item[(b)] \(\mathrm{Var}(\mathbf{b}'\mathbf{X}) \leq \mathrm{Var}(\mathbf{b}'\mathbf{Y})\) 
+    for all \(\mathbf{b} = (b_1, \ldots, b_n)' \in \mathbb{R}^n\).
+\end{itemize}
+
+\subsection*{Solution}
+
+Let $\gamma_X,\gamma_Y$ be the respective autocovariance functions for $X_t$ and $Y_t$. Then, we have that
+\[ f_Y(\lambda) - f_X(\lambda) = \frac{1}{2\pi} \sum_{n = -\infty}^{\infty} e^{-ni\lambda} (\gamma_Y(n)-\gamma_X(n)) \geq 0, \]
+so let $m = \inf_{\lambda} f_Y(\lambda) - f_X(\lambda) \geq 0$.
+
+According to \textbf{Definition 1.5.1} a function $\kappa: \Z \to \R$ is non-negative definite if for any vector $a = (a_1,\ldots, a_n)' \in \R^n$,
+\[ a'\Gamma_n a = \sum_{i,j = 1}^{n} a_i \kappa(i-j) a_j \geq 0, \]
+for the matrix $(\Gamma_n)_{i,j} = \kappa(i-j)$.
+
+Then, let $\kappa(h) = \gamma_Y(h)-\gamma_X(h)$, let $(\Gamma_n)_{i,j} = \kappa(i-j)$ and similar to the proof of \textbf{Proposition 4.5.3}
+\[ \everymath{\displaystyle}
+\arraycolsep=1.8pt\def\arraystretch{2.5}
+\begin{array}{rcl}
+    a'\Gamma_n a & = & a' \Gamma_{n,Y} a - a' \Gamma_{n,X} a\\
+    & = & \int_{-\pi}^{\pi} \left|  \sum_{j = 1}^n a_j e^{-ijv} \right|^2 f_Y(v) dv - \int_{-\pi}^{\pi} \left|  \sum_{j = 1}^n a_j e^{-ijv} \right|^2 f_X(v) dv\\
+    & = & \int_{-\pi}^{\pi} \left|  \sum_{j = 1}^n a_j e^{-ijv} \right|^2 \underbrace{(f_Y(v)-f_X(v))}_{\geq m \geq 0} dv\\
+    & \geq & \int_{-\pi}^{\pi} \sum_{j,k = 1}^n a_j a_k e^{-i(k-j)v} m\; d v\\
+    & = & 2\pi m \sum_{j = 1}^n a_j^2 \geq 0.
+\end{array}\]
+Finally, note that $a' \Gamma_{n,Y} a - a' \Gamma_{n,X} a = \Var(a' Y_{1:n}) - \Var(a' X_{1:n}) \geq 0$ so not only $\Gamma_{n,Y} - \Gamma_{n,X}$ is non-negative definite, but also, $\Var(a' Y_{1:n}) \geq \Var(a' X_{1:n})$ for any vector $a \in \R^n$.

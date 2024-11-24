@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{k+kn}{from} \PYG{n+nn}{functools} \PYG{k+kn}{import} \PYG{n}{reduce}
+    \PYG{n}{I} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{X} \PYG{p}{:} \PYG{n}{X}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:]}
+    \PYG{n}{B} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{X} \PYG{p}{:} \PYG{n}{X}\PYG{p}{[:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}
+
+    \PYG{k}{for} \PYG{n}{n} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{):}
+        \PYG{n}{years\PYGZus{}reduced} \PYG{o}{=} \PYG{n}{reduce}\PYG{p}{(}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{\PYGZus{}}\PYG{p}{:} \PYG{n}{I}\PYG{p}{(}\PYG{n}{x}\PYG{p}{),} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),} \PYG{n}{years}\PYG{p}{)}
+        \PYG{n}{I\PYGZus{}minus\PYGZus{}B\PYGZus{}n\PYGZus{}times} \PYG{o}{=} \PYG{n}{reduce}\PYG{p}{(}\PYG{k}{lambda} \PYG{n}{x}\PYG{p}{,} \PYG{n}{\PYGZus{}}\PYG{p}{:} \PYG{n}{I}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{B}\PYG{p}{(}\PYG{n}{x}\PYG{p}{),} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n}\PYG{p}{),} \PYG{n}{X}\PYG{p}{)}
+
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{()}
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{years\PYGZus{}reduced}\PYG{p}{,} \PYG{n}{I\PYGZus{}minus\PYGZus{}B\PYGZus{}n\PYGZus{}times}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}n=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{n}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Years\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s+sa}{rf}\PYG{l+s+s2}{\PYGZdq{}\PYGZdl{}\PYGZbs{}nabla\PYGZca{}}\PYG{l+s+se}{\PYGZob{}\PYGZob{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{n}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+se}{\PYGZcb{}\PYGZcb{}}\PYG{l+s+s2}{ X\PYGZdl{}\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{title}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Plot for \PYGZdl{}n\PYGZdl{}=}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{n}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{()}
+        \PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+\end{Verbatim}
