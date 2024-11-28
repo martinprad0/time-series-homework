@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1732788955.02883 "/home/martin/Documents/VSCode/Latex/time-series-homework/final-project/src/main.tex" "main.pdf" "main" 1732788958.7118 0
+["pdflatex"] 1732800738.77624 "/home/martin/Documents/VSCode/Latex/time-series-homework/final-project/src/main.tex" "main.pdf" "main" 1732800741.55999 0
   "../chapters/chapter1.tex" 1732788286.09536 5685 2fd84098120e46b9669473188fdb4cbe ""
-  "../chapters/chapter2.tex" 1732788940.28313 7342 de6be844fdbfa7bf729cfdf24f3d0637 ""
+  "../chapters/chapter2.tex" 1732800738.38127 7342 de6be844fdbfa7bf729cfdf24f3d0637 ""
   "../chapters/chapter3.tex" 1732788954.95122 4253 efba3c89a4cd542566689856936294eb ""
   "../pictures/image1.png" 1732774906.57836 70153 2e1b1354ccc97e38b28ca53dddeae7b0 ""
   "../pictures/image10.png" 1732787851.51673 117542 f0b654c369141818d42dbc210c2876a3 ""
@@ -256,7 +256,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719663480.05852 4547809 72a019b3ea2e5a9ca986a536dc67eb1c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1719663032 7871737 a05e94d67e1df4a02cf1ad7a792646f9 ""
-  "main.aux" 1732788958.44024 2430 b4ced398f2585e2da48f6ec053b258d1 "pdflatex"
+  "main.aux" 1732800741.31129 2430 b4ced398f2585e2da48f6ec053b258d1 "pdflatex"
   "main.tex" 1732777776.59955 3607 dcb3b3cb99fc316cd7992ac9a6430675 ""
   (generated)
   "main.aux"
