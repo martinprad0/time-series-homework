@@ -51,6 +51,8 @@
 \def\AR{\ensuremath{\textbf{AR\,}}}
 \def\MA{\ensuremath{\textbf{MA\,}}}
 \def\ARMA{\ensuremath{\textbf{ARMA\,}}}
+\def\ARIMA{\ensuremath{\textbf{ARIMA\,}}}
+\def\SARIMA{\ensuremath{\textbf{SARIMA\,}}}
 \def\sp{\ensuremath{\textbf{sp\,}}}
 \def\1{\ensuremath{\mathds{1}}}
 % Analysis
@@ -96,94 +98,7 @@
 \maketitle
 % \tableofcontents 
 
-\section{Repaso de Estimación de modelos ARMA}
-
-\subsection*{3.4 Función de Autocorelación Parcial (pacf)}
-
-Para una serie de tiempo estacionaria $(X_t)_{t \in \Z}$ de media $0$, función de autocovarianza $\gamma(h) = \E[X_{t+h}\, X_{t}] = \E[X_{h}\, X_{0}]$ y función de autocorrelación $\rho(h) = \gamma(h)/\gamma(0)$, la función de autocorrelación parcial se define como
-\[ \alpha(1) = \corr(X_2, X_1) = \rho(1) \]
-\[ \alpha(k) = \corr(X_{k+1} - P_{\sp\{1,X_2,\ldots,X_k\}}X_{k+1}, X_{k+1} - P_{\sp\{1,X_2,\ldots,X_k\}}X_{1}) \]
-Por otro lado, si definimos $\HH_n := \ol{\sp}\{X_1,\ldots,X_n\}$ y $\wh{X}_{n+1} := P_{\HH_n}(X_{n+1})$, del sistema de ecuaciones
-\[ R_k \alpha_k = \rho_k, \]
-en donde $[R_k]_{ij} = \rho(i-j)$, $\rho_k = (\rho(1),\ldots, \rho(k))'$, se sigue que el vector de soluciones $\alpha_k = (\alpha_{k1},\ldots, \alpha_{kk})'$ satisface $\alpha(k) = \alpha_{kk}$.
-
-\subsection*{7.2 Estimación de la función de autocorrelación}
-El estimador de la media es $\ol{X}_n = n^{-1}\sum_{k = 1}^n X_k$ y el de la función de autocovarianza es
-\[ \wh{\gamma}(h) = \frac{1}{n} \sum_{t = 1}^{n-h} (X_t - \ol{X}_n)(X_{t+h}-\ol{X}_n).\]
-El estimador de la función de autocorrelación se define como
-\[ \wh{\rho}(h) = \wh{\gamma}(h)/\wh{\gamma}(0), \]
-y el de la matriz de covarianza es
-\[ \wh{\Gamma}_n = \left[ \begin{matrix}
-    \wh{\gamma}(0) & \wh{\gamma}(0) & \cdots & \wh{\gamma}(n-1)\\
-    \wh{\gamma}(1) & \wh{\gamma}(0) & \cdots & \wh{\gamma}(n-2)\\
-    \vdots\\
-    \wh{\gamma}(n-1) & \wh{\gamma}(n-2) & \cdots & \wh{\gamma}(0)\\
-\end{matrix} \right] \]
-
-\subsection*{8.1 Ecuaciones Yule-Walker}
-
-Para un proceso $\AR(p)$ causal de media 0
-\[ X_t -\phi_1 X_{t-1} - \ldots \phi_{p} X_{t-p} = Z_t,\quad Z_t \sim \WN(0,\sigma^2), \]
-y función de autocovarianza $\gamma(h) = \E[X_h X_0]$, tenemos que
-\[ \Gamma_p \bm{\phi} = \gamma_p, \]
-en donde $[\Gamma_p]_{ij} = \gamma_{ij}(i-j)$, $\bm{\phi} = (\phi_1,\ldots, \phi_p)'$ y $\gamma_p = (\gamma(1),\ldots, \gamma(p))'$. En particular, si tomamos los estimados de la función de autocovarianza muestral $\wh\gamma$, podemos estimar los coeficientes del proceso $\AR(p)$ como la solución del vector $\wh{\bm{\phi}} = (\wh{\phi}_1,\ldots,\wh{\phi}_p)'$ en la ecuación
-\[ \wh{\Gamma}_p \wh{\bm{\phi}} = \wh{\gamma}_p,\quad \wh\gamma_p = (\wh\gamma(1),\ldots, \wh\gamma(p))'. \]
-
-
-\subsection*{8.3 Estimados de coeficientes de Innovación}
-
-Para una muestra $X_t$ del modelo $\MA(q)$
-\[ X_t = Z_t' + \theta_1 Z_{t-1}' + \cdots + \theta_q Z_{t-q}',\quad Z_t' \sim \WN(0,\sigma^2), \]
-se puede realizar un ajuste de los coeficientes con el algoritmo de innovaciones para obtener
-\[ X_t = Z_t + \wh{\theta}_{m1} Z_{t-1} + \cdots + \wh{\theta}_{mm} Z_{t-m},\quad Z_t \sim \WN(0,\wh{v}_m) \]
-con $\wh\theta_{ij}$ y $\wh{v}_m$ definidos a partir de la relación recursiva
-\[ \wh{\theta}_{m,m-k} = \wh{v}_k^{-1}\left[  \wh{\gamma}(m-k) - \sum_{j = 0}^{k-1} \wh{\theta}_{m,m-j} \wh{\theta}_{k,k-j} \wh{v}_j \right],\quad k = 0,\ldots, m-1, \]
-y
-\[ \wh{v}_m = \wh{\gamma}(0) - \sum_{j = 0}^{m-1} \wh{\theta}_{m,m.j}^2 \wh{v_j}. \]
-
-\subsection*{8.4 Estimados de coeficientes de Innovación}
-
-En particular, para procesos $\ARMA(p,q)$ de media cero y causales
-\[ \phi(B)X_t = X_t - \phi_{1} X_{t-1} - \cdots - \phi_p X_{t-p} = Z_t + \theta_1 Z_{t-1} + \cdots + \theta_q Z_{t-q} = \theta(B) Z_t,  \]
-podemos encontrar una función $\psi$ que satisface
-\[ X_t = \psi(B) Z_t = \sum_{j = 0}^{\infty} \psi_j Z_{t-j}. \]
-Los coeficientes $\psi_j$ satisfacen
-\[ \psi_0 = 1,\quad\quad \psi_j = \theta_j + \sum_{i = 1}^{\min(j,p)} \phi_i \psi_{j-i}, \]
-y por ende, con la fórmula del capítulo 8.3 podemos estimar $\psi_1,\ldots, \psi_{p+q}$ con $\wh{\theta}_{m1},\ldots, \wh{\theta}_{m,p+q}$, para luego obtener estimadores $\wh\phi$ y $\wh\theta$ con la fórmula
-\[ \wh{\theta}_{mj} = \wh\theta_j + \sum_{i = 1}^{\min(j,p)} \wh\phi_i \wh{\theta}_{m,j-i}, \]
-y también el estimador de la varianza del proceso $\WN$ con
-\[ \wh\sigma^2 = \wh{v}_m. \]
-
-\subsection*{8.7 Estimadores de Máxima Verosimilitud y Mínimos Cuadrados}
-
-Para una realización $X_1,\ldots, X_n$ del proceso $\ARMA(p,q)$ definido en la sección anterior (con $Z_t$ Gaussianas), definimos $\bm{\phi} = (\phi_1,\ldots,\phi_p)'$, $\bm{\theta} = (\theta_1,\ldots, \theta_q)'$, los coeficientes $\theta_{ij}$ "reales" del algoritmo de Innovación:
-\[ \begin{cases}
-    \wh{X}_{i+1} = \sum_{j = 1}^i \theta_{ij} (X_{i+1-j} - \wh{X}_{i+1-j}), & 1 \leq i < m = \max(p,q)\\[1em]
-    \wh{X}_{i+1} = \phi(B) X_i + \sum_{j = 1}^i \theta_{ij} (X_{i+1-j} - \wh{X}_{i+1-j}), & i \geq m
-\end{cases} \]
-
-y además,
-\[ r_i := \E[(X_{i+1}- \wh{X}_{i+1})^2] / \sigma^2. \]
-
-La función de verosimilitud de los parámetros del proceso $\ARMA$ es
-\[ L(\bm{\phi}, \bm{\theta}, \sigma^2) = (2\pi \sigma^2)^{-n/2}(r_0\cdots r_{n-1})^{-1/2} \exp\left[ -\frac{1}{2}\sigma^{-2} \sum_{j = 1}^n (X_j - \wh{X}_j)^2/r_{j-1} \right] . \]
-Después de derivar con respecto a $\sigma^2$, tenemos que el estimador de máxima verosimilitud de la varianza es
-\[ \tilde{\sigma}^2 = n^{-1} S(\tilde{\bm{\phi}},\tilde{\bm{\theta}}), \]
-en donde
-\[ S(\tilde{\bm{\phi}},\tilde{\bm{\theta}}) = \sum_{j = 1}^n (X_j - \wh{X}_j)^2/r_{j-1} \]
-y $\tilde{\bm{\phi}},\tilde{\bm{\theta}}$ son los valores de los parámetros $\bm\phi,\bm\theta$ que minimizan la función
-\[ l(\bm\phi,\bm\theta) = \ln(n^{-1}S(\bm\phi,\bm\theta)) + n^{-1} \sum_{j = 1}^n \ln r_{j-1}. \]
-
-\subsection*{8.9 }
-$\wh{}$
-
-\subsection*{8.11 }
-
-\section{Modelos ARIMA y SARIMA}
-
-\subsection*{Técnicas de Identificación}
-
-
+\inputfiles{../chapters/*}
 
 % \bibliography{refs}
  
